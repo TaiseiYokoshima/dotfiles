@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+result=$(bluetoothctl power off)
+result_check=$(echo "$result" | grep -oP "Changing power off succeeded")
+
+
+if [[ "$result_check" != "Changing power off succeeded" ]]; then
+  dunstify -u critical "Bluetooth" "Failed to power off:\n$result"
+  exit
+fi
+
+dunstify "Bluetooth" "Powered off"
+

@@ -1,0 +1,67 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 25, // Waybar height
+    "margin": "0 0 0 0",
+    "modules-left": ["clock", "sway/window"],
+    "modules-center": ["sway/workspaces"],
+    "modules-right": ["bluetooth", "network", "cpu", "memory", "pulseaudio", "battery"],
+
+
+
+    "clock": {
+        "interval": 1,
+        "format": "<span color=\"#ff5555\"></span>  {:%H:%M:%S  |   <span color=\"#bd93f9\"></span>  %a  %d/%m/%Y}",
+    },
+
+    "sway/window": {},
+
+    "cpu": {
+        "format": "<span color=\"#f1fa8c\"></span>  {usage}% "
+    },
+    "memory": {
+        "format": "  {}%"
+    },
+
+    "battery": {
+      "interval": 10,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-icons": [
+            "<span color=\"#ff5555\"></span>",
+            "<span color=\"#ffb86c\"></span>",
+            "<span color=\"#f1fa8c\"></span>",
+            "<span color=\"#50fa7b\"></span>",
+            "<span color=\"#50fa7b\"></span>"
+        ]
+    },
+
+    "network": {
+        // "interface": "wlp2s0", // (Optional) To force the use of this interface
+        "format-wifi": "  {}",
+        "format-ethernet": "  {}",
+        "format-disconnected": "⚠",
+        "interval" : 10
+    },
+
+    "bluetooth": {
+        "format": " {}",
+        "interval" : 1
+    },
+ 
+
+    "pulseaudio": {
+        "format": "<span color=\"#8be9fd\">{icon}</span>  {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "default": ["", ""]
+        },
+    }
+}

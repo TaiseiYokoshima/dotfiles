@@ -1,0 +1,42 @@
+#!/bin/bash
+
+turn_on=$(bluetoothctl power on)
+filter=$(echo "$turn_on" | grep -oP "Changing power on succeeded")
+
+
+if [[ "$filter" == "Changing power on succeeded" ]]; then 
+  dunstify "Bluetooth" "Powered On" -t 500
+else 
+  dunstify -u critical "Bluetooth" "Failed to power on:\n$turn_on"
+  exit
+fi
+
+device_list=$(bluetoothctl devices Paired) 
+connected=$(bluetoothctl devices Connected) 
+connectable="$device_list"
+
+
+readarray -t array <<< "$connected"
+for element in "${array[@]}"; do
+  connectable="${connectable//$element/}"
+done
+
+
+connectable=$(echo -e "$connectable" | grep -v '^$')
+device_names=$(echo "$connectable" | cut -d ' ' -f 3-)
+selection=$(echo -e "$device_names" | dmenu -i -l 10 -p "Device to connect:")
+
+if [[ "$selection" == "" ]]; then 
+  exit
+fi
+
+mac=$(echo "$connectable" | grep "$selection" | awk '{print $2}')
+result=$(bluetoothctl connect "$mac")
+result_check=$(echo "$result" | grep -oP "Connection successful|Failed to connect")
+
+if [[ "$result_check" == "Failed to connect" ]]; then
+  dunstify -u critical "Bluetooth" "Failed to connect to $selection\n$result"
+  exit
+fi
+
+

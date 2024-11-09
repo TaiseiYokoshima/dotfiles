@@ -1,0 +1,170 @@
+set $mod Mod1
+font pango:monospace 11
+
+exec --no-startup-id dex --autostart --environment sway
+exec_always --no-startup-id $HOME/.config/i3blocks/battery_init.sh
+
+exec --no-startup-id swayidle --transfer-sleep-lock --  swaylock -n --color 000000 -f -p default
+bindsym $mod+BackSpace exec --no-startup-id swaylock --color 000000 
+bindsym $mod+Escape exec --no-startup-id ~/.config/i3/dmenu_scripts/power_options
+
+exec_always --no-startup-id swaybg -i $HOME/my_background/pixel.jpg
+exec_always --no-startup-id pkill waybar
+exec_always --no-startup-id waybar
+
+
+# Use pactl to adjust volume in PulseAudio.
+bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.config/i3/i3_scripts/volume increase
+bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.config/i3/i3_scripts/volume decrease  
+bindsym XF86AudioMute exec --no-startup-id $HOME/.config/i3/i3_scripts/toggle_mute
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym Print exec --no-startup-id gnome-screenshot -i
+
+bindsym XF86MonBrightnessUp exec --no-startup-id  $HOME/.config/i3/i3_scripts/brightness increase
+bindsym XF86MonBrightnessDown exec --no-startup-id $HOME/.config/i3/i3_scripts/brightness decrease
+
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+bindsym $mod+Return exec wezterm
+bindsym $mod+o exec firefox
+
+
+# kill focused window
+bindsym $mod+q kill
+bindsym $mod+b exec --no-startup-id $HOME/.config/i3/dmenu_scripts/bluetooth
+
+bindsym Mod4+space exec --no-startup-id dmenu_run -i -l 15
+bindsym $mod+space exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -l 15 -i"
+
+bindsym $mod+Tab         exec $HOME/.config/i3/i3_scripts/cycle_tabbed_windows right
+bindsym $mod+Shift+Tab   exec $HOME/.config/i3/i3_scripts/cycle_tabbed_windows left
+ 
+
+bindsym $mod+j          focus up
+bindsym $mod+k          focus left
+bindsym $mod+l          focus right
+bindsym $mod+semicolon  focus down
+
+# move focused window
+bindsym $mod+Shift+j         move up 
+bindsym $mod+Shift+k         move left
+bindsym $mod+Shift+l         move right
+bindsym $mod+Shift+semicolon move down
+
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+slash fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+slash floating toggle
+
+# focus the parent container
+bindsym $mod+p focus parent
+
+# focus the child container
+bindsym $mod+c focus child
+
+set $ws1 "a"
+set $ws2 "s"
+set $ws3 "d"
+set $ws4 "f"
+set $ws5 "g"
+
+set $ws6 "n"
+set $ws7 "m"
+set $ws8 ","
+set $ws9 "."
+set $ws10 "0"
+
+
+# switch to workspace
+bindsym $mod+a workspace $ws1
+bindsym $mod+s workspace $ws2
+bindsym $mod+d workspace $ws3
+bindsym $mod+f workspace $ws4
+bindsym $mod+g workspace $ws5
+
+bindsym $mod+n workspace $ws6
+bindsym $mod+m workspace $ws7
+bindsym $mod+comma workspace $ws8
+bindsym $mod+period workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+a move container to workspace $ws1
+bindsym $mod+Shift+s move container to workspace $ws2
+bindsym $mod+Shift+d move container to workspace $ws3
+bindsym $mod+Shift+f move container to workspace $ws4
+bindsym $mod+Shift+g move container to workspace $ws5
+
+bindsym $mod+Shift+n move container to workspace $ws6
+bindsym $mod+Shift+m move container to workspace $ws7
+bindsym $mod+Shift+comma move container to workspace $ws8
+bindsym $mod+Shift+period move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+
+default_border pixel 2
+
+# reload the configuration file
+bindsym $mod+Shift+r reload
+
+# resize window (you can also use the mouse for that)
+set $to_move 3
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym k resize grow width $to_move px or $to_move ppt
+        bindsym l resize shrink width $to_move px or $to_move ppt
+
+        bindsym j resize grow height $to_move px or $to_move ppt
+        bindsym semicolon resize shrink height $to_move px or $to_move ppt
+
+
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize grow width $to_move px or $to_move ppt
+        bindsym Right resize shrink width $to_move px or $to_move ppt
+
+        bindsym Up resize grow height $to_move px or $to_move ppt
+        bindsym Down resize shrink height $to_move px or $to_move ppt
+
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym r exec i3-msg "resize set width 960px height 540px"
+
+        bindsym e layout toggle split
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+
+input "2362:597:STAR0001:00_093A:0255_Touchpad" {
+  tap enabled
+  middle_emulation enabled
+  drag disabled
+}
+
+bindsym $mod+r mode "resize"
+

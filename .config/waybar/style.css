@@ -1,0 +1,60 @@
+#waybar {
+    background: rgba(0,0,0,0);
+}
+
+#workspaces button {
+    margin: 0 5px;
+    padding: 0;
+    background: transparent;
+    color: #bce3e1;
+    border-bottom: 0px solid transparent;
+}
+
+#workspaces button.focused {
+    color: #055ef7;
+    border-bottom: 2px solid #055ef7;
+}
+
+#workspaces button.urgent {
+    color: #f70505;
+}
+
+#workspaces button:hover {
+    box-shadow: none;
+    text-shadow: none;
+    border-bottom: 2px solid #ff79c6;
+}
+
+#battery, #cpu, #bluetooth, #memory, #network, #pulseaudio {
+    padding: 0 5px;
+    margin: 0 5px;
+}
+
+#network {
+    padding: 0 5px;
+    margin: 0 5px;
+}
+
+
+#clock {
+  margin: 0 0px;
+  padding: 0px 20px 0px 10px; 
+}
+
+
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background: #f53c3c;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
