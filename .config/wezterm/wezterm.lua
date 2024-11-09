@@ -16,8 +16,8 @@ config.window_padding = {
   top = 0,
 }
 
-config.window_background_image = '/home/rom/my_background/ghost_in_the_shell.jpg'
--- config.window_background_image = '/home/rom/.config/wezterm/background/akira.jpg'
+config.window_background_image = '/home/rom/wallpapers/ghost_in_the_shell.jpg'
+-- config.window_background_image = '/home/rom/wallpapers/akira.jpg'
 config.window_background_image_hsb = {
   brightness = 0.05,
   hue = 1.0,
