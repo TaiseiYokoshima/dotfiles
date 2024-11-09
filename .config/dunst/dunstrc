@@ -1,0 +1,41 @@
+[global]
+  origin = top-right
+  offset = 10x15
+  scale = 2
+  notification_limit = 0
+  corner_radius = 5
+  frame_width = 2
+  font = Jet Brains Nerd Font 10
+
+  progress_bar = true
+  progress_bar_height = 5
+
+  progress_bar_min_width = 150
+  progress_bar_max_width = 200
+
+
+  width = (0, 200)
+
+[urgency_low]
+  background  =  "#000000"
+  foreground  =  "#540aea"
+  frame_color =  "#0d39a0"
+  timeout     =  5
+
+[urgency_normal]
+  background  =  "#000000"
+  foreground  =  "#540aea"
+  frame_color =  "#0d39a0"
+  timeout     =  5
+
+[urgency_critical]
+  background  =  "#000000"
+  foreground  =  "#900000"
+  frame_color =  "#ff0000"
+  timeout     =  0
+
+
+[history-ignore]
+  appname = ignored
+  history_ignore = yes
+

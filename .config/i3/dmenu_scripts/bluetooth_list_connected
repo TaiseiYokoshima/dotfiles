@@ -1,0 +1,12 @@
+#!/bin/bash
+
+device_list=$(bluetoothctl devices Connected) 
+device_names=$(echo "$device_list" | cut -d ' ' -f 3-)
+if [[ "$device_list" == "" ]]; then
+  device_names="None"
+fi
+
+selection=$(echo -e "$device_names" | dmenu -i -l 10 -p "Connected devices:")
+
+
+

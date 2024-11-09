@@ -1,0 +1,27 @@
+#!/bin/bash
+
+
+choice=$(echo -e "Connect\nDisconnect\nList Connected Devices\nPair\nRemove Device\nPower On\nPower Off" | dmenu -i -l 7 -p "Options:")
+
+if [[ "$choice" == "" ]]; then
+  exit
+fi
+
+
+if [[ "$choice" == "Connect" ]]; then
+  ~/.config/i3/dmenu_scripts/bluetooth_connect
+elif [[ "$choice" == "Disconnect" ]]; then
+  ~/.config/i3/dmenu_scripts/bluetooth_disconnect
+elif [[ "$choice" == "Pair" ]]; then
+  ~/.config/i3/dmenu_scripts/bluetooth_pair
+elif [[ "$choice" == "Remove Device" ]]; then
+  ~/.config/i3/dmenu_scripts/bluetooth_remove
+elif [[ "$choice" == "Power Off" ]]; then
+  ~/.config/i3/dmenu_scripts/bluetooth_off
+elif [[ "$choice" == "List Connected Devices" ]]; then
+  ~/.config/i3/dmenu_scripts/bluetooth_list_connected
+elif [[ "$choice" == "Power On" ]]; then
+  ~/.config/i3/dmenu_scripts/bluetooth_on
+fi
+
+echo "$choice"
