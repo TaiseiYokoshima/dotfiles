@@ -1,14 +1,17 @@
+# exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
+
+
 set $mod Mod1
 font pango:monospace 11
 
-exec --no-startup-id dex --autostart --environment sway
+# exec --no-startup-id dex --autostart --environment sway
 exec_always --no-startup-id $HOME/.config/i3blocks/battery_init.sh
 
-exec --no-startup-id swayidle --transfer-sleep-lock --  swaylock -n --color 000000 -f -p default
+# exec --no-startup-id swayidle --transfer-sleep-lock --  swaylock -n --color 000000 -f -p default
 bindsym $mod+BackSpace exec --no-startup-id swaylock --color 000000 
 bindsym $mod+Escape exec --no-startup-id ~/.config/i3/dmenu_scripts/power_options
 
-exec_always --no-startup-id swaybg -i $HOME/my_background/pixel.jpg
+exec_always --no-startup-id swaybg -i $HOME/wallpapers/pixel.jpg
 exec_always --no-startup-id pkill waybar
 exec_always --no-startup-id waybar
 
@@ -89,7 +92,7 @@ set $ws6 "n"
 set $ws7 "m"
 set $ws8 ","
 set $ws9 "."
-set $ws10 "0"
+# set $ws10 "0"
 
 
 # switch to workspace
@@ -103,7 +106,7 @@ bindsym $mod+n workspace $ws6
 bindsym $mod+m workspace $ws7
 bindsym $mod+comma workspace $ws8
 bindsym $mod+period workspace $ws9
-bindsym $mod+0 workspace $ws10
+# bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+a move container to workspace $ws1
@@ -116,7 +119,7 @@ bindsym $mod+Shift+n move container to workspace $ws6
 bindsym $mod+Shift+m move container to workspace $ws7
 bindsym $mod+Shift+comma move container to workspace $ws8
 bindsym $mod+Shift+period move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+# bindsym $mod+Shift+0 move container to workspace $ws10
 
 
 default_border pixel 2
@@ -167,4 +170,3 @@ input "2362:597:STAR0001:00_093A:0255_Touchpad" {
 }
 
 bindsym $mod+r mode "resize"
-
