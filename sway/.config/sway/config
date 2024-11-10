@@ -1,6 +1,3 @@
-# exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
-
-
 set $mod Mod1
 font pango:monospace 11
 
@@ -12,8 +9,6 @@ bindsym $mod+BackSpace exec --no-startup-id swaylock --color 000000
 bindsym $mod+Escape exec --no-startup-id ~/.config/i3/dmenu_scripts/power_options
 
 exec_always --no-startup-id swaybg -i $HOME/wallpapers/pixel.jpg
-exec_always --no-startup-id pkill waybar
-exec_always --no-startup-id waybar
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -92,7 +87,20 @@ set $ws6 "n"
 set $ws7 "m"
 set $ws8 ","
 set $ws9 "."
-# set $ws10 "0"
+set $ws10 "0"
+
+
+workspace $ws1 output DP-1
+workspace $ws2 output DP-1
+workspace $ws3 output DP-1
+workspace $ws4 output DP-1
+workspace $ws5 output DP-1
+
+workspace $ws6 output HDMI-A-1
+workspace $ws7 output HDMI-A-1
+workspace $ws8 output HDMI-A-1
+workspace $ws9 output HDMI-A-1
+workspace $ws10 output HDMI-A-1
 
 
 # switch to workspace
@@ -106,7 +114,7 @@ bindsym $mod+n workspace $ws6
 bindsym $mod+m workspace $ws7
 bindsym $mod+comma workspace $ws8
 bindsym $mod+period workspace $ws9
-# bindsym $mod+0 workspace $ws10
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+a move container to workspace $ws1
@@ -119,7 +127,7 @@ bindsym $mod+Shift+n move container to workspace $ws6
 bindsym $mod+Shift+m move container to workspace $ws7
 bindsym $mod+Shift+comma move container to workspace $ws8
 bindsym $mod+Shift+period move container to workspace $ws9
-# bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 
 default_border pixel 2
@@ -167,6 +175,10 @@ input "2362:597:STAR0001:00_093A:0255_Touchpad" {
   tap enabled
   middle_emulation enabled
   drag disabled
+}
+
+bar {
+  swaybar_command waybar
 }
 
 bindsym $mod+r mode "resize"

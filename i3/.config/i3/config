@@ -149,16 +149,16 @@ set $ws8 ","
 set $ws9 "."
 set $ws10 "0"
 
-# workspace "a" output DP-1
-# workspace "s" output DP-1
-# workspace "d" output DP-1
-# workspace "f" output DP-1
-# workspace "g" output DP-1
-# workspace "n" output HDMI-1
-# workspace "m" output HDMI-1
-# workspace "," output HDMI-1
-# workspace "." output HDMI-1
-# workspace "0" output HDMI-1
+workspace "a" output DP-1
+workspace "s" output DP-1
+workspace "d" output DP-1
+workspace "f" output DP-1
+workspace "g" output DP-1
+workspace "n" output HDMI-1
+workspace "m" output HDMI-1
+workspace "," output HDMI-1
+workspace "." output HDMI-1
+workspace "0" output HDMI-1
 
 # switch to workspace
 bindsym $mod+a workspace $ws1
