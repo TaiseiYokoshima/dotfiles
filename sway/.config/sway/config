@@ -3,12 +3,11 @@ font pango:monospace 11
 
 # exec --no-startup-id dex --autostart --environment sway
 exec_always --no-startup-id $HOME/.config/i3blocks/battery_init.sh
+exec_always --no-startup-id swaybg -i $HOME/wallpapers/pixel.jpg
 
 # exec --no-startup-id swayidle --transfer-sleep-lock --  swaylock -n --color 000000 -f -p default
 bindsym $mod+BackSpace exec --no-startup-id swaylock --color 000000 
-bindsym $mod+Escape exec --no-startup-id ~/.config/i3/dmenu_scripts/power_options
-
-exec_always --no-startup-id swaybg -i $HOME/wallpapers/pixel.jpg
+bindsym $mod+Grave exec --no-startup-id ~/.config/i3/dmenu_scripts/power_options
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -77,16 +76,16 @@ bindsym $mod+p focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-set $ws1 "a"
-set $ws2 "s"
-set $ws3 "d"
-set $ws4 "f"
-set $ws5 "g"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
 
-set $ws6 "n"
-set $ws7 "m"
-set $ws8 ","
-set $ws9 "."
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
 set $ws10 "0"
 
 
