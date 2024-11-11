@@ -3,8 +3,8 @@
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 1, // Waybar height
     "margin": "0 0 0 0",
-    "modules-left": ["clock", "network", "bluetooth", "sway/language"],
-    "modules-center": ["sway/workspaces"],
+    "modules-left": ["clock", "network", "bluetooth"],
+    "modules-center": ["sway/workspaces", "sway/language"],
     "modules-right": ["temperature", "cpu", "memory", "disk", "pulseaudio", "battery"],
 
 
@@ -22,7 +22,7 @@
     },
 
     "bluetooth": {
-      "format": "<span color=\"#2541f7\"></span> {}",
+      "format": "<span color=\"#2541f7\"></span>  {}",
       "interval" : 1
     },
 
