@@ -1,0 +1,81 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 1, // Waybar height
+    "margin": "0 0 0 0",
+    "modules-left": ["clock", "network", "bluetooth", "sway/language"],
+    "modules-center": ["sway/workspaces"],
+    "modules-right": ["temperature", "cpu", "memory", "disk", "pulseaudio", "battery"],
+
+
+    "clock": {
+        "interval": 1,
+        "format": "<span color=\"#ff5555\"></span>  {:%H:%M:%S  |   <span color=\"#bd93f9\"></span>  %a  %d/%m/%Y}"
+    },
+
+    "network": {
+      "interface": "wlp2s0", // (Optional) To force the use of this interface
+      "format-wifi": "<span color=\"#42f563\"> </span> {}",
+      "format-ethernet": "  {}",
+      "format-disconnected": "<span color=\"#fc0511\">⚠</span>",
+      "interval" : 10
+    },
+
+    "bluetooth": {
+      "format": "<span color=\"#2541f7\"></span> {}",
+      "interval" : 1
+    },
+
+    "sway/language": {
+      "format": "{short} {variant}",
+      "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    },
+
+
+
+
+    "temperature": {
+      "format": "  {temperatureC}°C"
+    },
+
+    "cpu": {
+        "format": "   {usage}%"
+    },
+
+    "memory": {
+        "format": "  {}%"
+    },
+
+
+    "disk": {
+        "format": "  {percentage_free}%"
+    },
+
+    "pulseaudio": {
+      "format": "{icon}  {volume}%",
+      "format-muted": "",
+      "format-icons": {
+        "headphones": "",
+        "handsfree": "",
+        "headset": "",
+        "default": ["", ""]
+      }
+    },
+
+    "battery": {
+      "interval": 10,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-icons": [
+            "<span color=\"#ff5555\"></span>",
+            "<span color=\"#ffb86c\"></span>",
+            "<span color=\"#f1fa8c\"></span>",
+            "<span color=\"#50fa7b\"></span>",
+            "<span color=\"#50fa7b\"></span>"
+        ]
+    }
+}
