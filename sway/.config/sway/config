@@ -1,7 +1,7 @@
 set $mod Mod1
 font pango:monospace 11
 
-# exec --no-startup-id dex --autostart --environment sway
+exec --no-startup-id dex --autostart --environment sway
 exec_always --no-startup-id $HOME/.config/i3blocks/battery_init.sh
 exec_always --no-startup-id swaybg -i $HOME/wallpapers/pixel.jpg
 
@@ -174,6 +174,9 @@ input "2362:597:STAR0001:00_093A:0255_Touchpad" {
   tap enabled
   middle_emulation enabled
   drag disabled
+  natural_scroll disabled
+  pointer_accel 0
+  dwt enabled
 }
 
 bar {
