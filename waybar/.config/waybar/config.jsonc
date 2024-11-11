@@ -10,13 +10,13 @@
 
     "clock": {
         "interval": 1,
-        "format": "<span color=\"#ff5555\"></span>  {:%H:%M:%S  |   <span color=\"#bd93f9\"></span>  %a  %d/%m/%Y}"
+        "format": "<span color=\"#ff5555\"></span>  <span color=\"#ffffff\">{:%H:%M:%S</span> |   <span color=\"#bd93f9\"></span>  <span color=\"#ffffff\">%a  %d/%m/%Y}</span>"
     },
 
     "network": {
-      "interface": "wlp2s0", // (Optional) To force the use of this interface
+      // "interface": "wlp2s0", // (Optional) To force the use of this interface
       "format-wifi": "<span color=\"#42f563\"> </span> {}",
-      "format-ethernet": "  {}",
+      "format-ethernet": "    {ipaddr}",
       "format-disconnected": "<span color=\"#fc0511\">⚠</span>",
       "interval" : 10
     },
