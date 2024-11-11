@@ -3,7 +3,11 @@ local wezterm = require("wezterm")
 -- config builder
 local config = wezterm.config_builder()
 
-config.font = wezterm.font("JetBrainsMonoNerdFont")
+config.font = wezterm.font_with_fallback({
+  "JetBrainsMonoNerdFont",
+  "Font Awesome 6 Free Solid"
+
+})
 config.font_size = 15.0
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
