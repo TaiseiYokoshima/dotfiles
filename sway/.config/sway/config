@@ -3,9 +3,16 @@ font pango:monospace 11
 
 exec --no-startup-id dex --autostart --environment sway
 exec_always --no-startup-id $HOME/.config/i3blocks/battery_init.sh
-exec_always --no-startup-id swaybg -i $HOME/wallpapers/pixel.jpg
+# exec_always --no-startup-id swaybg -i $HOME/wallpapers/pixel.jpg
+exec_always --no-startup-id swaybg -i $HOME/wallpapers/deer.png
 
-# exec --no-startup-id swayidle --transfer-sleep-lock --  swaylock -n --color 000000 -f -p default
+
+# exec swayidle -w timeout 1000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
+
+
+exec --no-startup-id fcitx5 -D 
+
+
 bindsym $mod+BackSpace exec --no-startup-id swaylock --color 000000 
 bindsym $mod+Grave exec --no-startup-id ~/.config/i3/dmenu_scripts/power_options
 
