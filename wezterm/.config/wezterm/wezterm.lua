@@ -39,47 +39,47 @@ local act = wezterm.action
 config.keys = {
   {
     key = "=",
-    mods = "SUPER",
+    mods = "ALT",
     action = "IncreaseFontSize"
   },
   {
     key = "0",
-    mods = "SUPER",
+    mods = "ALT",
     action = "ResetFontSize"
   },
   {
     key = ':',
-    mods = 'SHIFT|SUPER',
+    mods = 'SHIFT|ALT',
     action = "ActivateCommandPalette"
   },
   {
     key = "j",
-    mods = "SUPER",
+    mods = "ALT",
     action = act.CopyTo 'Clipboard'
   },
   {
     key = "k",
-    mods = "SUPER",
+    mods = "ALT",
     action = act.PasteFrom "Clipboard"
   },
   {
     key = 'l',
-    mods = 'SUPER',
+    mods = 'ALT',
     action = 'ActivateCopyMode'
   },
   {
     key = "-",
-    mods = "SUPER",
+    mods = "ALT",
     action = "DecreaseFontSize"
   },
   {
     key = "n",
-    mods = "SUPER",
+    mods = "ALT",
     action = 'SpawnWindow'
   },
   -- {
   --   key = "LeftArrow",
-  --   mods = "SUPER",
+  --   mods = "ALT",
   --   action = act.Multiple {
   --     "ActivateCopyMode",
   --     act.CopyMode { SetSelectionMode = 'Cell' },
