@@ -43,6 +43,7 @@
   background: #000000;
   padding: 0 12 0 12px;
   min-width: 16px;
+	color: #80ebed;
 }
 
 
@@ -59,7 +60,7 @@
   color: #6e4848;
 }
 
-#network, #bluetooth, #custom-kbd {
+#network, #bluetooth {
   color: #ffffff;
 }
 
