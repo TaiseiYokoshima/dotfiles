@@ -234,10 +234,6 @@ function call_ls
   l
 end
 
-set -x XMODIFIERS "@im-fcitx"
-set -x GTK_IM_MODULE "@im-fcitx"
-set -x QT_IM_MODULE "fcitx"
-set -x DefaultIMModule "fcitx"
 
 # install keychain, openssh, ssh-agent, ssh-add
 set output (keychain --quiet --eval --agents ssh ~/.ssh/github)
