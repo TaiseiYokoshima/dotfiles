@@ -3,8 +3,8 @@
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 1, // Waybar height
     "margin": "0 0 0 0",
-    "modules-left": ["clock", "network", "bluetooth"],
-    "modules-center": ["sway/workspaces", "sway/language"],
+    "modules-left": ["clock", "network", "bluetooth", "custom/idle"],
+    "modules-center": ["sway/workspaces", "custom/kbd"],
     "modules-right": ["temperature", "cpu", "memory", "disk", "pulseaudio", "battery"],
 
 
@@ -16,7 +16,7 @@
     "network": {
       // "interface": "wlp2s0", // (Optional) To force the use of this interface
       "format-wifi": "<span color=\"#42f563\"> </span> {}",
-      "format-ethernet": "    {ipaddr}",
+      "format-ethernet": "<span color=\"#42f563\"> </span>   {ipaddr}",
       "format-disconnected": "<span color=\"#fc0511\">⚠</span>",
       "interval" : 10
     },
@@ -26,9 +26,18 @@
       "interval" : 1
     },
 
-    "sway/language": {
-      "format": "{short} {variant}",
-      "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+
+    "custom/idle": {
+        "restart-interval": 0.1,
+        "exec": "~/.config/waybar/scripts/idle.bash",
+        "return-type": "json"
+    },
+
+
+    "custom/kbd": {
+      "restart-interval": 1,
+      "exec": "~/.config/waybar/scripts/kbd.bash",
+      "return-type": "json"
     },
 
 
