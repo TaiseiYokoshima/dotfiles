@@ -1,8 +1,14 @@
-set $mod Mod1
+# Mod1 = Alt
+# Mod4 = Super
+set $mod Mod4
+set $mod2 Mod1
+
 font pango:monospace 11
 
 exec --no-startup-id dex --autostart --environment sway
 exec_always --no-startup-id $HOME/.config/i3blocks/battery_init.sh
+
+
 # exec_always --no-startup-id swaybg -i $HOME/wallpapers/pixel.jpg
 exec_always --no-startup-id swaybg -i $HOME/wallpapers/deer.png
 
@@ -42,7 +48,7 @@ bindsym $mod+o exec firefox
 bindsym $mod+q kill
 bindsym $mod+b exec --no-startup-id $HOME/.config/i3/dmenu_scripts/bluetooth
 
-bindsym Mod4+space exec --no-startup-id dmenu_run -i -l 15
+bindsym $mod2+space exec --no-startup-id dmenu_run -i -l 15
 bindsym $mod+space exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -l 15 -i"
 
 bindsym $mod+Tab         exec $HOME/.config/i3/i3_scripts/cycle_tabbed_windows right
