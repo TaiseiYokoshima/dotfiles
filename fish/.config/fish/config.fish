@@ -9,6 +9,8 @@ if status is-interactive
   alias llt "ll -T"
   alias llat "lla -T"
   alias v "nvim"
+  alias sv "sudo -E nvim"
+
   alias g "git"
 end
 
