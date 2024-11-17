@@ -103,6 +103,9 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "0"
 
+output DP-1 pos 0 0 
+output HDMI-A-1 pos 1920 0
+
 
 workspace $ws1 output DP-1
 workspace $ws2 output DP-1
