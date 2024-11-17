@@ -10,7 +10,7 @@
 
     "clock": {
         "interval": 1,
-        "format": "<span color=\"#ff5555\"></span>  <span color=\"#ffffff\">{:%H:%M:%S</span> |   <span color=\"#bd93f9\"></span>  <span color=\"#ffffff\">%a  %d/%m/%Y}</span>"
+        "format": "<span color=\"#ff5555\"></span>  <span color=\"#ffffff\">{:%H:%M:%S</span> |  <span color=\"#bd93f9\"></span>  <span color=\"#ffffff\">%a  %d/%m/%Y}</span>"
     },
 
     "network": {
