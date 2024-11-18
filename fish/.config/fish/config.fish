@@ -133,12 +133,17 @@ function fish_user_key_bindings
   bind --erase --preset \e\[27\;2\;13\~ execute
   bind --erase --preset \e\[13\;2u execute
   bind --erase --preset -k dc delete-char
-  bind --erase --preset \e\[1\~ beginning-of-line
-  bind --erase --preset \e\[4\~ end-of-line
-  bind --erase --preset -k home beginning-of-line
-  bind --erase --preset -k end end-of-line
-  bind --erase --preset \ca beginning-of-line
-  bind --erase --preset \ce end-of-line
+
+
+
+  # bind --erase --preset \e\[1\~ beginning-of-line
+  # bind --erase --preset \e\[4\~ end-of-line
+  # bind --erase --preset -k home beginning-of-line
+  # bind --erase --preset -k end end-of-line
+  # bind --erase --preset \ca beginning-of-line
+  # bind --erase --preset \ce end-of-line
+
+
   bind --erase --preset \b backward-delete-char
   bind --erase --preset \cp up-or-search
   bind --erase --preset \cn down-or-search
