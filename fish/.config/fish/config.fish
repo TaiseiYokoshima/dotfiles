@@ -16,6 +16,8 @@ end
 
 function fish_prompt
   set -l fish     "⋊>"
+  set -l success  "❯"
+  set -l failed   "✗"
 
   set -l last_command_status $status
   set -l cwd
@@ -33,18 +35,29 @@ function fish_prompt
   set -l directory_color  (set_color $fish_color_quote 2> /dev/null; or set_color brown)
   set -l repository_color (set_color $fish_color_cwd 2> /dev/null; or set_color green)
 
-  if test -n "$SSH_CLIENT$SSH_TTY"
-    set prompt_string (whoami)"@"(hostname -s)
+  if test -n "$SSH_CONNECTION"
+    echo -n -s " 󰣀" $directory_color
+  end
+
+  if test -n "$TMUX"
+    echo -n -s " ◧" $directory_color
   end
 
 
   echo -n -s " " $directory_color $cwd $normal_color " "
 
 
+  if test "$(ls -a | grep -x '.git')" = ".git"
+    set -l branch (git branch --show-current)
+    echo -n -s "" $directory_color " $branch" $normal_color " "
+  end
+
+
+
   if test $last_command_status -eq 0
-    echo -n -s $success_color $fish $normal_color
+    echo -n -s $success_color $success $normal_color
   else
-    echo -n -s $error_color $fish $normal_color
+    echo -n -s $error_color $failed $normal_color
   end
 
   echo " " 
@@ -254,4 +267,7 @@ eval "$output"
 # haskell 
 set -x PATH $PATH ~/.ghcup/bin
 set -x PATH $PATH ~/.cabal/bin
+
+
+# starship init fish | source
 
