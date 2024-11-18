@@ -103,21 +103,24 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "0"
 
-output DP-1 pos 0 0 
-output HDMI-A-1 pos 1920 0
+set $left DP-3
+set $right HDMI-A-1
+
+output $left pos 0 0 
+output $right pos 1920 0
 
 
-workspace $ws1 output DP-1
-workspace $ws2 output DP-1
-workspace $ws3 output DP-1
-workspace $ws4 output DP-1
-workspace $ws5 output DP-1
+workspace $ws1 output $left
+workspace $ws2 output $left
+workspace $ws3 output $left
+workspace $ws4 output $left
+workspace $ws5 output $left
 
-workspace $ws6 output HDMI-A-1
-workspace $ws7 output HDMI-A-1
-workspace $ws8 output HDMI-A-1
-workspace $ws9 output HDMI-A-1
-workspace $ws10 output HDMI-A-1
+workspace $ws6 output $right
+workspace $ws7 output $right
+workspace $ws8 output $right
+workspace $ws9 output $right
+workspace $ws10 output $right
 
 
 # switch to workspace
