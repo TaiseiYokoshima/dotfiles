@@ -28,11 +28,12 @@ function fish_prompt
     set cwd (basename (prompt_pwd))
   end
   
-
+  set -l ssh_tmux_color   (set_color 9BF192)
+  set -l git_color        (set_color CA4444)
   set -l normal_color     (set_color normal)
-  set -l success_color    (set_color cyan)
-  set -l error_color      (set_color $fish_color_error 2> /dev/null; or set_color red --bold)
-  set -l directory_color  (set_color $fish_color_quote 2> /dev/null; or set_color brown)
+  set -l success_color    (set_color 4988F6)
+  set -l error_color      (set_color FF0000)
+  set -l directory_color  (set_color blue)
   set -l repository_color (set_color $fish_color_cwd 2> /dev/null; or set_color green)
 
   if test -n "$SSH_CONNECTION"
@@ -40,27 +41,25 @@ function fish_prompt
   end
 
   if test -n "$TMUX"
-    echo -n -s " ◧" $directory_color
+    echo -n -s $ssh_tmux_color " ◧" $directory_color
   end
 
 
   echo -n -s " " $directory_color $cwd $normal_color " "
 
 
-  if test "$(ls -a | grep -x '.git')" = ".git"
+  if test "$(git rev-parse --show-toplevel 2>/dev/null)" != ""
     set -l branch (git branch --show-current)
-    echo -n -s "" $directory_color " $branch" $normal_color " "
+    echo -n -s  $git_color " $branch" $normal_color " "
   end
 
 
 
   if test $last_command_status -eq 0
-    echo -n -s $success_color $success $normal_color
+    echo -n -s $success_color $success $normal_color " "
   else
-    echo -n -s $error_color $failed $normal_color
+    echo -n -s $error_color $failed $normal_color " "
   end
-
-  echo " " 
 
 end
 
