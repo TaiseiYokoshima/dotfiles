@@ -37,7 +37,7 @@ function fish_prompt
   set -l repository_color (set_color $fish_color_cwd 2> /dev/null; or set_color green)
 
   if test -n "$SSH_CONNECTION"
-    echo -n -s " 󰣀" $directory_color
+    echo -n -s $ssh_tmux_color " 󰣀" $directory_color
   end
 
   if test -n "$TMUX"
