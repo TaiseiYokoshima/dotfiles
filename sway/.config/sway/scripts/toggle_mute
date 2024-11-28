@@ -1,0 +1,29 @@
+#!/bin/bash
+pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+muted=$(pactl list sinks | grep -A 15 "$(pactl info | grep 'Default Sink:' | awk '{print $3}')" | grep 'Mute:' | awk '{print $2}')
+
+
+str='int:value:'
+
+if [[ "$muted" == "yes" ]]; then 
+  str="$str\"0\" \"Volume: Muted\""
+else
+  volume=$(pactl get-sink-volume @DEFAULT_SINK@)
+  volume=$(echo "$volume" | grep -oP "\d{1,3}%" | uniq)
+  volume="${volume%?}"
+  str="$str\"$volume\" \"Volume: $volume%\""
+fi
+
+
+id=$(cat /$HOME/.config/sway/scripts/volume_id.txt)
+if [ "$id" == "" ]; then 
+  id=$(eval "notify-send -e -p -t 500 -h $str" )
+  echo "got id: $id"
+  echo "$id" > /$HOME/.config/sway/scripts/volume_id.txt
+  echo "not_set"
+else
+  eval "notify-send -e -r $id -t 500 -h $str"
+  echo "came here"
+fi
+

@@ -1,0 +1,32 @@
+#!/bin/bash
+
+volume=$(pactl get-sink-volume @DEFAULT_SINK@)
+volume=$(echo "$volume" | grep -oP "\d{1,3}%" | uniq)
+
+volume="${volume%?}"
+
+if [[ "$1" == "increase" && "$volume" -lt "150" ]]; then
+  volume=$((volume + 10))
+  pactl set-sink-volume @DEFAULT_SINK@ "$volume"% 
+elif [[ "$1" == "decrease" && "$volume" != "0" ]]; then
+  volume=$((volume - 10))
+  pactl set-sink-volume @DEFAULT_SINK@ "$volume"% 
+fi
+
+volume=$(pactl get-sink-volume @DEFAULT_SINK@)
+volume=$(echo "$volume" | grep -oP "\d{1,3}%" | uniq)
+
+volume="${volume%?}"
+
+
+id=$(cat /$HOME/.config/sway/scripts/volume_id.txt)
+if [ "$id" == "" ]; then 
+  id=$(notify-send -e -p -t 500 -h int:value:"$volume" "Volume: $volume%")
+  echo "$id" > /$HOME/.config/sway/scripts/volume_id.txt
+  echo "not_set"
+else
+  notify-send -e -r "$id" -t 500 -h int:value:"$volume" "Volume: $volume%" 
+  echo "came here"
+fi
+
+

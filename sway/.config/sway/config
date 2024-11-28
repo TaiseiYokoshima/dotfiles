@@ -11,6 +11,11 @@ exec_always --no-startup-id $HOME/.config/i3blocks/battery_init.sh
 
 # exec_always --no-startup-id swaybg -i $HOME/wallpapers/pixel.jpg
 exec_always --no-startup-id swaybg -i $HOME/wallpapers/deer.png
+exec_always --no-startup-id $HOME/.config/sway/scripts/reset_volume_brightness
+
+
+
+exec_always swaync
 
 
 # exec swayidle -w timeout 1000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
@@ -21,20 +26,22 @@ exec --no-startup-id fcitx5 -D
 
 bindsym $mod+BackSpace exec --no-startup-id swaylock --color 000000 
 bindsym $mod+Grave exec --no-startup-id ~/.config/i3/dmenu_scripts/power_options
+bindsym $mod+Control+s exec grim -g "$(slurp)" - | wl-copy
+
 
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.config/i3/i3_scripts/volume increase
-bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.config/i3/i3_scripts/volume decrease  
-bindsym XF86AudioMute exec --no-startup-id $HOME/.config/i3/i3_scripts/toggle_mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.config/sway/scripts/volume increase
+bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.config/sway/scripts/volume decrease  
+bindsym XF86AudioMute exec --no-startup-id $HOME/.config/sway/scripts/toggle_mute
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym Print exec --no-startup-id gnome-screenshot -i
 
-bindsym XF86MonBrightnessUp exec --no-startup-id  $HOME/.config/i3/i3_scripts/brightness increase
-bindsym XF86MonBrightnessDown exec --no-startup-id $HOME/.config/i3/i3_scripts/brightness decrease
+bindsym XF86MonBrightnessUp exec --no-startup-id  $HOME/.config/sway/scripts/brightness_monitor increase
+bindsym XF86MonBrightnessDown exec --no-startup-id $HOME/.config/sway/scripts/brightness_monitor decrease
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -49,7 +56,8 @@ bindsym $mod+q kill
 bindsym $mod+b exec --no-startup-id $HOME/.config/i3/dmenu_scripts/bluetooth
 
 bindsym $mod+space exec --no-startup-id $HOME/.config/rofi/scripts/entry_launch.bash
-# bindsym $mod2+space exec --no-startup-id swaymsg -t get_workspaces --pretty > ~/test
+bindsym $mod2+space exec swaync-client -rs  && swaync-client -t
+
 
 
 
@@ -103,8 +111,8 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "0"
 
-set $left DP-3
-set $right HDMI-A-1
+set $left HDMI-A-1
+set $right DP-3
 
 output $left pos 0 0 
 output $right pos 1920 0

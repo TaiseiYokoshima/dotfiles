@@ -1,0 +1,27 @@
+#!/bin/bash
+
+brightness=""
+
+if [[ "$1" == "increase" ]]; then
+  ddcutil -d 2  setvcp 10 100
+  ddcutil -d 1  setvcp 10 100
+  brightness="100"
+
+elif [[ "$1" == "decrease" ]]; then
+  ddcutil -d 2  setvcp 10 0
+  ddcutil -d 1  setvcp 10 0
+  brightness="0"
+fi
+
+
+id=$(cat /$HOME/.config/sway/scripts/brightness_id.txt)
+if [ "$id" == "" ]; then 
+  id=$(notify-send -e -p -t 500 -h int:value:"$brightness" "Brightness: $brightness%")
+  echo "$id" > /$HOME/.config/sway/scripts/brightness_id.txt
+  echo "not_set"
+else
+  notify-send -e -r "$id" -t 500 -h int:value:"$brightness" "Brightness: $brightness%" 
+  echo "came here"
+fi
+
+

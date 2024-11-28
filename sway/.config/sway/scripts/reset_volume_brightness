@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "" > $HOME/.config/sway/scripts/volume_id.txt
+echo "" > $HOME/.config/sway/scripts/brightness_id.txt
