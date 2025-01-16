@@ -30,17 +30,19 @@ return {
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
+          -- the above line causes documentation overlap
         },
 
-        view = { docs = { auto_open = false } },
+        view = { docs = { auto_open = true } },
 
 
 
         sorting = {
           comparators = {
             cmp.config.compare.offset,
-            cmp.config.compare.exact,
             cmp.config.compare.score,
+            cmp.config.compare.scopes,
+            cmp.config.compare.exact,
             cmp.config.compare.recently_used,
             cmp.config.compare.kind,
           }
@@ -49,22 +51,11 @@ return {
 
 
         mapping = cmp.mapping.preset.insert({
-          ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-          ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+          ["<C-i>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+          ["<C-o>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
 
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-m>"] = cmp.mapping.scroll_docs(4),
-
-          ['<C-i>'] = cmp.mapping(function(fallback)
-            if cmp.visible_docs() then
-              cmp.close_docs()
-            elseif cmp.visible() then
-              cmp.open_docs()
-            else
-              fallback()
-            end
-          end),
-
+          ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-p>"] = cmp.mapping.scroll_docs(4),
 
 
 
@@ -91,6 +82,7 @@ return {
             cmp.close()
             fallback()
           end, { "i", "c" }),
+
         }),
 
         preselect = cmp.PreselectMode.Item,
