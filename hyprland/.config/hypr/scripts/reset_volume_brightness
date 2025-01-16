@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "" > $HOME/.config/hypr/scripts/volume_id.txt
+echo "" > $HOME/.config/hypr/scripts/brightness_id.txt

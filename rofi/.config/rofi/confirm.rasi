@@ -1,0 +1,81 @@
+@theme "/dev/null"
+configuration {
+	font:							        "JetBrainsMono Nerd Font Mono 14";
+  disable-history:          false;
+	sidebar-mode: 					  false;
+  me-select-entry: "MousePrimary";
+  me-accept-entry: "!MousePrimary";
+  hover-select: true;
+}
+
+* {
+  background-color: rgba(0, 0, 0, 0%);
+  margin: 0% 0% 0% 0%;
+  padding: 0% 0% 0% 0%;
+  border: 0%;
+}
+
+
+
+window {
+    transparency:             "real";
+    border:           2;
+    border-radius:    10;
+    border-color: rgba (255, 255, 255, 100%);
+    border-color: rgba (0, 0, 0, 100%);
+	  width:							      20%;
+	  height:							      58.519%;
+    background-color: rgba(0, 0, 0, 40%);
+}
+
+
+
+inputbar {
+    text-color:       rgba (255, 255, 255, 100%);
+    padding:    2% 0% 2% 0%;
+    background-color: rgba (0, 0, 0, 100%);
+    children:   [textbox-prompt-colon,entry];
+}
+
+prompt {
+    enabled: false;
+}
+
+textbox-prompt-colon {
+    expand:       false;
+    str:          "";
+    padding:       0% 0.7% 0% 0.7%;
+    text-color:   rgba (255, 255, 255, 100%);
+}
+
+entry {
+  text-color:       rgba (255, 255, 255, 100%);
+  placeholder:      "Bluetooth";
+  cursor:           text;
+}
+
+
+
+listview {
+  scrollbar:   false;
+  dynamic:     true;
+}
+
+element {
+  border:  0;
+  padding: 2%;
+  cursor:   pointer;
+}
+
+element-text  {
+  cursor:   pointer;
+  text-color:      rgba(255, 255, 255, 100%);
+}
+
+element selected {
+  background-color: rgba(255, 255, 255, 40%);
+}
+
+element-text selected {
+  text-color:      rgba(0, 0, 0, 100%);
+}
