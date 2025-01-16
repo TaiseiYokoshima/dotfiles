@@ -4,7 +4,9 @@
     "height": 8, // Waybar height
     "margin": "0 0 0 0",
     "modules-left": ["clock", "network", "bluetooth", "custom/idle", "custom/kbd"],
-    "modules-center": ["sway/workspaces"],
+    // "modules-center": ["sway/workspaces"],
+    // "modules-center": ["wlr/workspaces"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": ["temperature", "cpu", "memory", "disk", "pulseaudio", "battery"],
 
 
