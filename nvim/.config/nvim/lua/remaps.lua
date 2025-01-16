@@ -33,13 +33,13 @@ end, { expr = true, noremap = true })
 -- | luasnips
 local ls = require("luasnip")
 -- map({"i", "s"}, "<S-Left>", function() might work better?
-map("i", "<S-Left>", function()
+map("i", "<C-u>", function()
   if ls.jumpable(-1) then
     ls.jump(-1)
   end
 end)
 
-map("i", "<S-Right>", function()
+map("i", "<C-p>", function()
   if ls.jumpable(1) then
     ls.jump(1)
   end
@@ -48,8 +48,11 @@ end)
 
 -- | navigatoinal
 -- moves the selected text up and down
-map("x", "<S-Down>", ":m '>+1<CR>gv=gv", opt)
-map("x", "<S-Up>", ":m '<-2<CR>gv=gv", opt)
+map("x", "<Down>", ":m '>+1<CR>gv=gv", opt)
+map("x", "<Up>", ":m '<-2<CR>gv=gv", opt)
+
+map("n", "<Down>", ":m +1<CR>", opt)
+map("n", "<Up>", ":m -2<CR>", opt)
 
 -- moves to next and previous search hit but keeps the cursor in the middle of the page 
 map("n", "n" , "nzzzv", opt)
@@ -66,10 +69,12 @@ map("n", "<C-Right>", "<C-d>zz", opt)
 
 
 -- | panes
-map("n", "<leader>k", "<C-w>h", opt)
-map("n", "<leader>l", "<C-w>l", opt)
-map("n", "<leader>j", "<C-w>k", opt)
-map("n", "<leader>;", "<C-w>j", opt)
+-- map("n", "<leader>k", "<C-w>h", opt)
+map("n", "<S-Left>", "<C-w>h", opt)
+map("n", "<S-Right>", "<C-w>l", opt)
+map("n", "<S-Up>", "<C-w>k", opt)
+map("n", "<S-Down>", "<C-w>j", opt)
+
 map("n", "<C-=>", ":vertical resize +1<CR>", opt)
 map("n", "<C-->", ":vertical resize -1<CR>", opt)
 map("n", "<leader>s", ":vsplit<CR>", opt)

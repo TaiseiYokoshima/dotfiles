@@ -54,8 +54,8 @@ return {
           ["<C-i>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
           ["<C-o>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
 
-          ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-p>"] = cmp.mapping.scroll_docs(4),
+          ["<C-I>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-P>"] = cmp.mapping.scroll_docs(4),
 
 
 
