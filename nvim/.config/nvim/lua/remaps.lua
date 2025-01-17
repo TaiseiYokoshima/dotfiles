@@ -219,3 +219,10 @@ map("x", "<leader>P", 'P', opt)   --       |
 map("n", "s", '"_s', opt)
 map("v", "s", '"_s', opt)
 map("x", "s", '"_s', opt)
+
+
+map("n", "c", '"_c', opt)          -- deleting
+map("v", "c", '"_c', opt)          --    |
+map("x", "c", '"_c', opt)          --    |
+
+
