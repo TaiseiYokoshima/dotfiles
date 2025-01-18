@@ -13,3 +13,6 @@ vim.opt.wrap = false
 
 vim.cmd("set runtimepath+=~/.config/nvim")
 vim.g.mapleader = " "
+
+
+

@@ -8,6 +8,7 @@ return {
       auto_install = true,
 			highlight = { enabled = true },
 			indent = { enabled = true },
+      incremental_selection = { enabled = true },
 		})
 	end,
 }
