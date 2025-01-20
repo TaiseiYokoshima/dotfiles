@@ -1,7 +1,9 @@
 {
     "diagnostics.globals": [
         "vim",
-        "map",
-        "opt"
+        "add_package",
+        "run_all",
+        "run_all_with_start",
+        "run_all_except"
     ]
 }

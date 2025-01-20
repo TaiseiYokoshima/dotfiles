@@ -7,11 +7,22 @@ vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>", {})
 
 
 -- to remove annoying space
-map("n",  " ", "Nop", opt)
+map("n",  " ", "<Nop>", opt)
 
 -- unhighlighting
 map("n",  "Y", ":noh<CR>", opt)
 
+
+map("i", "<C-BS>", "<C-w>", opt)
+
+
+
+
+map("n", "h", "gc", opt)
+-- map("n", "hh", "gcc", opt)
+
+map("v", "h", "gc", opt)
+map("x", "h", "gc", opt)
 
 
 vim.keymap.set("", "<ScrollWheelUp>", "<C-Y>", { noremap = true, silent = true })
@@ -31,7 +42,6 @@ vim.keymap.set("", "<ScrollWheelDown>", "<C-E>", { noremap = true, silent = true
 -- map("i", "<Tab>", function()
 --   return string.match(vim.api.nvim_get_current_line(), '%g') == nil and '<Esc>cc' or '<Tab>'
 -- end, { expr = true, noremap = true })
-
 
 
 

@@ -1,15 +1,15 @@
 local function completion_config()
   local cmp = require("cmp")
-  -- require("luasnip.loaders.from_vscode").lazy_load()
+  require("luasnip.loaders.from_vscode").lazy_load()
 
 
   local my_config = {
-    -- snippet = {
-    --   -- REQUIRED - you must specify a snippet engine
-    --   expand = function(args)
-    --     require("luasnip").lsp_expand(args.body)
-    --   end,
-    -- },
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        require("luasnip").lsp_expand(args.body)
+      end,
+    },
 
 
 
@@ -94,12 +94,12 @@ return {
 
   {
     "L3MON4D3/LuaSnip",
-    enabled = false,
+    -- enabled = false,
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
     },
-    version = "v2.2.0",
+    version = "v2.3.0",
     build = "make install_jsregexp",
   },
 

@@ -52,7 +52,7 @@ local function configure_lsp_config()
 
 
   add_package("lsp_setup/on_attach.lua")
-  run_all("lsp_setup")
+  run_all_except("lsp_setup", "on_attach")
 
 
 

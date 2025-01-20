@@ -9,8 +9,8 @@ function _G.show_registers()
   local default_str = "yank: " .. default
   local clipboard_str = "clipboard: " .. clipboard
 
-  print(default_str)
   print(clipboard_str)
+  print(default_str)
 end
 
 map("n", "<C-h>", ":lua _G.show_registers()<CR>")
@@ -55,3 +55,6 @@ map("x", "<leader>p", 'p', opt)
 
 map("v", "<leader>P", 'P', opt)
 map("x", "<leader>P", 'P', opt)
+
+
+map("i", "<C-S-p>", '<C-r>"', {})
