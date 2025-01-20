@@ -4,6 +4,14 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set nowrap")
 
+
+
+
+
+-- vim.cmd("set cmdheight=0")
+
+
+
 vim.o.smartindent = true
 vim.o.autoindent = true
 
