@@ -1,30 +1,30 @@
 map = vim.keymap.set
 opt = { noremap = true, silent = true }
 
--- custom show yanked 
+-- custom show yanked
 function _G.show_registers()
-  local default = vim.fn.getreg('"')
-  local clipboard = vim.fn.getreg('+')
+   local default = vim.fn.getreg('"')
+   local clipboard = vim.fn.getreg('+')
 
-  local default_str = "yank: " .. default
-  local clipboard_str = "clipboard: " .. clipboard
+   local default_str = "yank: " .. default
+   local clipboard_str = "clipboard: " .. clipboard
 
-  print(clipboard_str)
-  print(default_str)
+   print(clipboard_str)
+   print(default_str)
 end
 
 map("n", "<C-h>", ":lua _G.show_registers()<CR>")
 
 
 
-local yank_clipboard_only = function (cmd)
-  local saved_register = vim.fn.getreg('"')
-  local saved_register_type = vim.fn.getregtype('"')
-  vim.api.nvim_command(cmd)
-  vim.fn.setreg('"', saved_register, saved_register_type)
+local yank_clipboard_only = function(cmd)
+   local saved_register = vim.fn.getreg('"')
+   local saved_register_type = vim.fn.getregtype('"')
+   vim.api.nvim_command(cmd)
+   vim.fn.setreg('"', saved_register, saved_register_type)
 end
 
--- system clipboard 
+-- system clipboard
 -- pastes without changing what's in the yanked buffer
 map('n', '<leader>cc', function() yank_clipboard_only('normal! "+yy') end, opt)
 map('v', '<leader>c', function() yank_clipboard_only('normal! "+y') end, opt)
@@ -57,4 +57,4 @@ map("v", "<leader>P", 'P', opt)
 map("x", "<leader>P", 'P', opt)
 
 
-map("i", "<C-S-p>", '<C-r>"', {})
+-- map("i", "<C-S-p>", '<C-r>"', opt)

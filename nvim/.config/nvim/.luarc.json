@@ -4,6 +4,8 @@
         "add_package",
         "run_all",
         "run_all_with_start",
-        "run_all_except"
+        "run_all_except",
+        "transparent_highlight",
+        "make_it_transparent"
     ]
 }

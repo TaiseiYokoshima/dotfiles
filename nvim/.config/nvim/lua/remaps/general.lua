@@ -7,10 +7,10 @@ vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>", {})
 
 
 -- to remove annoying space
-map("n",  " ", "<Nop>", opt)
+map("n", " ", "<Nop>", opt)
 
 -- unhighlighting
-map("n",  "Y", ":noh<CR>", opt)
+map("n", "Y", ":noh<CR>", opt)
 
 
 map("i", "<C-BS>", "<C-w>", opt)
@@ -37,7 +37,7 @@ vim.keymap.set("", "<ScrollWheelDown>", "<C-E>", { noremap = true, silent = true
 
 -- map("n", "<C-i>", "i", opt)
 
--- this maps tab in insert mode so that if it indents automatically to the correct level only 
+-- this maps tab in insert mode so that if it indents automatically to the correct level only
 -- if the line is empty
 -- map("i", "<Tab>", function()
 --   return string.match(vim.api.nvim_get_current_line(), '%g') == nil and '<Esc>cc' or '<Tab>'
@@ -61,4 +61,5 @@ vim.keymap.set("", "<ScrollWheelDown>", "<C-E>", { noremap = true, silent = true
 --   end
 -- end)
 --
+
 

@@ -32,7 +32,7 @@ end
 
 
 local function configure_lsp_config()
-  local _border = "double"
+  local _border = "single"
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover, {
