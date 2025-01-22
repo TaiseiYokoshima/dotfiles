@@ -36,5 +36,5 @@ return {
   dependencies = {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
-  config = function() config() end
+  config = config
 }

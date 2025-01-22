@@ -15,5 +15,5 @@ end
 
 return {
    "nvimtools/none-ls.nvim",
-   config = function() config() end,
+   config = config,
 }

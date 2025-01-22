@@ -1,128 +1,130 @@
 local function completion_config()
-   -- vim.o.completeopt = "menu,menuone,noselect"
-
-
-   -- make_it_transparent()
-
-
-
-   -- vim.o.pumblend = 20
-
    local cmp = require("cmp")
-
-   -- cmp.config.disable()
-
    require("luasnip.loaders.from_vscode").lazy_load()
 
-   local types = require("cmp.types")
-   local my_config = {
-      snippet = {
+   -- vim.o.completeopt = "menu,menuone,noselect"
 
-         -- REQUIRED - you must specify a snippet engine
-         expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-         end,
-      },
+---@diagnostic disable-next-line: unused-local
+   local function black_background(config)
+      vim.api.nvim_set_hl(0, "MyNormal", { bg = "#000000", fg = "#ffffff", blend = 100 })
+      config.window = {
+         completion = {
+            winhighlight = "Normal:MyNormal"
+         },
 
-
-
-
-
-
-      window = {
-         completion = cmp.config.window.bordered({
-            -- winhighlight = "Normal:MyNormal"
-         }),
-
-         documentation = cmp.config.window.bordered(),
-         -- the above line causes documentation overlap
-      },
-
-      view = { docs = { auto_open = true } },
-
-
-
-      sorting = {
-         comparators = {
-            cmp.config.compare.offset,
-            cmp.config.compare.score,
-            cmp.config.compare.scopes,
-            cmp.config.compare.exact,
-            cmp.config.compare.recently_used,
-            cmp.config.compare.kind,
+         documentation = {
+            winhighlight = "Normal:MyNormal"
          }
-      },
+      }
+      return config
+   end
 
-      mapping = {
-         ["<c-o>"] = cmp.mapping(function(fallback)
-            if not cmp.visible() then
-               cmp.complete()
-            else
-               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            end
-         end),
+   local snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+         require("luasnip").lsp_expand(args.body)
+      end,
+   }
+
+   local window = {
+      completion = cmp.config.window.bordered({
+         -- winhighlight = "Normal:MyNormal"
+      }),
+
+      documentation = cmp.config.window.bordered(),
+      -- the above line causes documentation overlap
+   }
+
+   local view = { docs = { auto_open = true } }
+
+   local sorting = {
+      comparators = {
+         cmp.config.compare.offset,
+         cmp.config.compare.score,
+         cmp.config.compare.scopes,
+         cmp.config.compare.exact,
+         cmp.config.compare.recently_used,
+         cmp.config.compare.kind,
+      }
+   }
+
+   local mapping = {
+      -- ["<c-o>"] = cmp.mapping(function(fallback)
+      ["<c-o>"] = cmp.mapping(function(_)
+         if not cmp.visible() then
+            cmp.complete()
+         else
+            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+         end
+      end),
 
 
-         ["<c-i>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-               cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-            else
-               fallback()
-            end
-         end),
-
-         ["<C-'>"] = cmp.mapping.scroll_docs(2),
-         ["<C-h>"] = cmp.mapping.scroll_docs(-2),
-
-         ["<C-S-o>"] = cmp.mapping.scroll_docs(2),
-         ["<C-S-i>"] = cmp.mapping.scroll_docs(-2),
-
-
-
-         ["<C-f>"] = cmp.mapping.confirm({ select = true }),
-         ["<C-a>"] = cmp.mapping.abort(),
-
-
-         ["<Up>"] = cmp.mapping(function(fallback)
-            cmp.close()
+      ["<c-i>"] = cmp.mapping(function(fallback)
+         if cmp.visible() then
+            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+         else
             fallback()
-         end),
+         end
+      end),
 
-         ["<Down>"] = cmp.mapping(function(fallback)
-            cmp.close()
-            fallback()
-         end),
+      ["<C-'>"] = cmp.mapping.scroll_docs(2),
+      ["<C-h>"] = cmp.mapping.scroll_docs(-2),
 
-         ["<Left>"] = cmp.mapping(function(fallback)
-            cmp.close()
-            fallback()
-         end),
-
-         ["<Right>"] = cmp.mapping(function(fallback)
-            cmp.close()
-            fallback()
-         end),
-      },
+      ["<C-S-o>"] = cmp.mapping.scroll_docs(2),
+      ["<C-S-i>"] = cmp.mapping.scroll_docs(-2),
 
 
 
-      preselect = cmp.PreselectMode.Item,
+      ["<C-f>"] = cmp.mapping.confirm({ select = true }),
+      ["<C-a>"] = cmp.mapping.abort(),
 
-      sources = cmp.config.sources({
 
-         { name = "nvim_lsp" },
-         { name = "luasnip" },
-         { name = "path" },
+      ["<Up>"] = cmp.mapping(function(fallback)
+         cmp.close()
+         fallback()
+      end),
 
-      }, {
-         { name = "buffer" },
-      })
+      ["<Down>"] = cmp.mapping(function(fallback)
+         cmp.close()
+         fallback()
+      end),
+
+      ["<Left>"] = cmp.mapping(function(fallback)
+         cmp.close()
+         fallback()
+      end),
+
+      ["<Right>"] = cmp.mapping(function(fallback)
+         cmp.close()
+         fallback()
+      end),
    }
 
 
-   -- print(vim.inspect(my_config.mapping))
+
+   local sources = cmp.config.sources({
+
+      { name = "nvim_lsp" },
+      { name = "luasnip" },
+      { name = "path" },
+
+   }, {
+      { name = "buffer" },
+   })
+
+   local my_config = {
+      snippet = snippet,
+      window = window,
+      view = view,
+      sorting = sorting,
+      mapping = mapping,
+      preselect = cmp.PreselectMode.Item,
+      sources = sources
+   }
 
 
+
+   -- my_config = black_background(my_config)
    cmp.setup(my_config)
 
 
@@ -139,14 +141,6 @@ local function completion_config()
          ls.jump(1)
       end
    end)
-
-
-
-
-
-
-   -- make_it_transparent()
-
 end
 
 
@@ -169,7 +163,7 @@ return {
 
    {
       "hrsh7th/nvim-cmp",
-      config = function() completion_config() end,
+      config = completion_config,
       dependencies = {
          "L3MON4D3/LuaSnip",
          "saadparwaiz1/cmp_luasnip",

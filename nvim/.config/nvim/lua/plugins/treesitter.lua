@@ -12,5 +12,5 @@ end
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	config = function() config() end,
+	config = config
 }

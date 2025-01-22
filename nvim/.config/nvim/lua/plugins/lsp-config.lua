@@ -65,23 +65,23 @@ end
 return {
   {
     "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
+    config = require("mason").setup
   },
 
   {
     "williamboman/mason-lspconfig.nvim",
-    config = function() mason_config() end,
+    config = mason_config
   },
+
+
 
   {
     "neovim/nvim-lspconfig",
-    config = function() configure_lsp_config() end,
+    config = configure_lsp_config
   },
 
   {
     "nvim-telescope/telescope-ui-select.nvim",
-    config = function() telescope_ui_config() end,
+    config = telescope_ui_config
   },
 }

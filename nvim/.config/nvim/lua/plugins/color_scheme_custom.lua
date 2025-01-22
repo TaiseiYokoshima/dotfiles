@@ -19,6 +19,6 @@ return {
    {
       "EdenEast/nightfox.nvim",
       -- enabled = false,
-      config = function() config() end
+      config = config
    }
 }

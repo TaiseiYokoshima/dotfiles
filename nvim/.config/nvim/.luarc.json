@@ -7,5 +7,8 @@
         "run_all_except",
         "transparent_highlight",
         "make_it_transparent"
+    ],
+    "diagnostics.disable": [
+        "unused-function"
     ]
 }

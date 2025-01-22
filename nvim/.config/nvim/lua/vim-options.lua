@@ -16,10 +16,6 @@ vim.o.termguicolors = true
 if vim.g.neovide then
    vim.g.neovide_transparency = 0.0
    vim.g.transparency = 0.0
-
-   print("this is neovide")
-else
-   print("this is not neovide")
 end
 
 
@@ -35,16 +31,6 @@ vim.opt.wrap = false
 
 vim.cmd("set runtimepath+=~/.config/nvim")
 vim.g.mapleader = " "
-
-
-
-
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = { "help", "man" },
---     callback = function ()
---       vim.cmd("wincmd L")
---     end
--- })
 
 
 
