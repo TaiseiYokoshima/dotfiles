@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       highlight Comment guibg=None
       highlight StatusLine guibg=None
 
-      set guicursor=n:block-c_normal,i-c:ver15-c_insert,v:block-c_visual,o:block-c_operator,r:hor30-c_replace
+      set guicursor=n:block-c_normal,i-c-ci:ver15-c_insert,v:block-c_visual,o:block-c_operator,r:hor30-c_replace
       ]]
    end
 })
