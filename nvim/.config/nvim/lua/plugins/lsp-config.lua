@@ -65,7 +65,7 @@ end
 return {
   {
     "williamboman/mason.nvim",
-    config = require("mason").setup
+    config = function() require("mason").setup() end
   },
 
   {
