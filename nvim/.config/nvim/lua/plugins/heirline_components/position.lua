@@ -27,7 +27,7 @@ local scrollbar = {
 
 
 return {
-   hl = mode_color,
+   -- hl = mode_color,
 
    position ,
    scrollbar

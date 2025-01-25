@@ -1,7 +1,21 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
+local function check(value)
+   if value == nil then
+      return false
+   end
 
+   if value == 0 then
+      return false
+   end
+
+   if value == "" then 
+      return false
+   end
+
+   return true
+end
 
 local branch = {
 
@@ -15,11 +29,7 @@ local branch = {
 
 local added = {
    condition = function(self)
-      local added = self.status_dict.added
-      if added then
-         return true
-      end
-      return false
+      return check(self.status_dict.added)
    end,
 
    provider = function(self)
@@ -33,11 +43,7 @@ local added = {
 
 local removed = {
    condition = function(self)
-      local removed = self.status_dict.removed
-      if removed then
-         return true
-      end
-      return false
+      return check(self.status_dict.removed)
    end,
    provider = function(self)
       return "-" .. self.status_dict.removed
@@ -49,11 +55,7 @@ local removed = {
 
 local changed = {
    condition = function(self)
-      local changed = self.status_dict.changed
-      if changed then
-         return true
-      end
-      return false
+      return check(self.status_dict.changed)
    end,
    provider = function(self)
       return "~" .. self.status_dict.changed
