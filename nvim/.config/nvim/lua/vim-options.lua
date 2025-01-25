@@ -9,8 +9,8 @@ vim.opt.showmode = false
 
 
 vim.o.termguicolors = true
+vim.o.cmdheight = 0
 
--- vim.cmd("set cmdheight=0")
 
 
 if vim.g.neovide then

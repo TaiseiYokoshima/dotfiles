@@ -4,7 +4,6 @@ local function completion_config()
 
    -- vim.o.completeopt = "menu,menuone,noselect"
 
----@diagnostic disable-next-line: unused-local
    local function black_background(config)
       vim.api.nvim_set_hl(0, "MyNormal", { bg = "#000000", fg = "#ffffff", blend = 100 })
       config.window = {

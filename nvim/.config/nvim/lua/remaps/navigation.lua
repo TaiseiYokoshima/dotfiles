@@ -3,8 +3,9 @@ opt = { noremap = true, silent = true }
 
 -- | navigatoinal
 -- moves the selected text up and down
-map("x", "<Down>", ":m '>+1<CR>gv=gv", opt)
-map("x", "<Up>", ":m '<-2<CR>gv=gv", opt)
+
+map("x", "<Down>", ":m '>+1<CR><CR>gv=gv", opt)
+map("x", "<Up>", ":m '<-2<CR><CR>gv=gv", opt)
 
 map("n", "<Down>", ":m +1<CR>", opt)
 map("n", "<Up>", ":m -2<CR>", opt)

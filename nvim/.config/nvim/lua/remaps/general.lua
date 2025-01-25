@@ -63,3 +63,14 @@ vim.keymap.set("", "<ScrollWheelDown>", "<C-E>", { noremap = true, silent = true
 --
 
 
+local highlight = require("highlights")
+
+map("n", "r", function()
+   vim.api.nvim_feedkeys("r", "n", false)
+   highlight.set_hl("c_replace", highlight.c_single_replace)
+
+   _G.single_replace = true
+   vim.schedule(function() vim.cmd("doautocmd ModeChanged") end)
+end, {})
+
+

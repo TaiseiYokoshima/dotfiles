@@ -5,10 +5,14 @@
         "run_all",
         "run_all_with_start",
         "run_all_except",
-        "transparent_highlight",
-        "make_it_transparent"
+        "map",
+        "opt",
+        "mode_color"
     ],
     "diagnostics.disable": [
-        "unused-function"
+        "unused-local",
+        "redundant-value",
+        "unused-function",
+        "duplicate-index"
     ]
 }
