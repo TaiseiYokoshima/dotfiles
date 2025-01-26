@@ -1,4 +1,5 @@
 local search_count = {
+   update = {"BufEnter", "CursorMoved", "CmdlineChanged"},
    init = function(self)
       local ok, count = pcall(vim.fn.searchcount)
       if ok and count.total then

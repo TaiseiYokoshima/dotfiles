@@ -28,25 +28,25 @@ local diagnostics = {
          -- 0 is just another output, we can decide to print it or not!
          return self.errors > 0 and (' ' .. self.error_icon .. self.errors)
       end,
-      hl = { fg = "red", bg = "black" },
+      hl = { fg = "red" },
    },
    {
       provider = function(self)
          return self.warnings > 0 and (' ' .. self.warn_icon .. self.warnings)
       end,
-      hl = { fg = "orange", bg = "black" },
+      hl = { fg = "orange" },
    },
    {
       provider = function(self)
          return self.info > 0 and (' ' .. self.info_icon .. self.info)
       end,
-      hl = { fg = "blue", bg = "black" },
+      hl = { fg = "blue" },
    },
    {
       provider = function(self)
          return self.hints > 0 and (' ' .. self.hint_icon .. self.hints)
       end,
-      hl = { fg = "purple", bg = "black" },
+      hl = { fg = "purple" },
    },
    {
       provider = "",

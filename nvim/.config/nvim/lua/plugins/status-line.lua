@@ -44,29 +44,6 @@ local function heirline_config()
    require("heirline").setup {
       statusline = statusline,
    }
-
-
-   local function redraw()
-      vim.schedule(function()
-         vim.cmd("redrawstatus")
-      end)
-   end
-
-
-   local events = {
-      "ModeChanged", "CursorMoved", "LspAttach", "LspDetach", "RecordingEnter", "RecordingLeave"
-   }
-
-   vim.api.nvim_create_autocmd(events, {
-      callback = redraw,
-   })
-
-   vim.api.nvim_create_autocmd("User", {
-      pattern = "LspProgressStatusUpdated",
-      callback = redraw
-   })
-
-
 end
 
 return {

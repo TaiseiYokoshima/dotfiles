@@ -18,7 +18,7 @@ local function check(value)
 end
 
 local branch = {
-
+   update = {"BufEnter"},
    provider = function(self)
       return "  " .. self.status_dict.head
       -- return "  " .. self.status_dict.head
@@ -28,6 +28,7 @@ local branch = {
 
 
 local added = {
+   update = {"BufEnter", "TextChanged", "TextChangedI", "TextChangedP", "TextChangedT"},
    condition = function(self)
       return check(self.status_dict.added)
    end,
@@ -42,6 +43,7 @@ local added = {
 
 
 local removed = {
+   update = {"BufEnter", "TextChanged", "TextChangedI", "TextChangedP", "TextChangedT"},
    condition = function(self)
       return check(self.status_dict.removed)
    end,
@@ -54,6 +56,7 @@ local removed = {
 
 
 local changed = {
+   update = {"BufEnter", "TextChanged", "TextChangedI", "TextChangedP", "TextChangedT"},
    condition = function(self)
       return check(self.status_dict.changed)
    end,
@@ -65,6 +68,7 @@ local changed = {
 
 
 local diff = {
+   update = {"BufEnter", "TextChanged", "TextChangedI", "TextChangedP", "TextChangedT"},
    condition = function(self)
       self.status_dict = vim.b.gitsigns_status_dict
       local added_check = check(self.status_dict.added)
@@ -88,6 +92,7 @@ local diff = {
 
 
 local git = {
+   update = {"BufEnter", "TextChanged", "TextChangedI", "TextChangedP", "TextChangedT"},
    condition = conditions.is_git_repo,
    init = function(self)
       self.status_dict = vim.b.gitsigns_status_dict

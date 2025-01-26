@@ -1,4 +1,4 @@
-local highlights = require("highlights")
+-- local highlights = require("highlights")
 
 function mode_color()
    if _G.single_replace == true then
@@ -45,7 +45,9 @@ function mode_color()
    return "c_normal"
 end
 
+
 local filename = {
+   -- update = {"ModeChanged", "BufEnter", "User"},
    provider = function(self)
       self.filename = vim.api.nvim_buf_get_name(0)
       if self.filename == "" then return " ? " end

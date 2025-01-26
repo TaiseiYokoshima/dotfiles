@@ -7,7 +7,9 @@
         "run_all_except",
         "map",
         "opt",
-        "mode_color"
+        "mode_color",
+        "vim_do",
+        "my_hls"
     ],
     "diagnostics.disable": [
         "unused-local",

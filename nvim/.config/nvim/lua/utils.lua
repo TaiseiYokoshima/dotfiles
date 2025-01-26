@@ -51,3 +51,23 @@ function add_package(str)
   local subdir_path = vim.fn.stdpath("config") .. "/lua/" .. str
   package.path = package.path .. ";" .. subdir_path
 end
+
+
+
+
+_G.treesitter_highlighter_active = function()
+   print(vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()])
+end
+
+
+function vim_do(str)
+   dofile(vim.fn.stdpath("config") .. "/lua/" .. str .. ".lua")
+end
+
+_G.vim_do = vim_do
+
+
+function my_hls()
+   local hl = require("highlights")
+   return hl[1], hl[2], hl[3], hl[4]
+end

@@ -1,4 +1,5 @@
 local macro = {
+   update = {"RecordingEnter", "RecordingLeave"},
    condition = function(self)
       local reg = vim.fn.reg_recording()
 

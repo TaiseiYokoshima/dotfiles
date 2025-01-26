@@ -28,6 +28,7 @@ local scrollbar = {
 
 return {
    -- hl = mode_color,
+   update = {"BufEnter", "CursorMoved"},
 
    position ,
    scrollbar
