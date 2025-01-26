@@ -10,7 +10,7 @@ local function check(value)
       return false
    end
 
-   if value == "" then 
+   if value == "" then
       return false
    end
 
@@ -66,10 +66,11 @@ local changed = {
 
 local diff = {
    condition = function(self)
-      local added_check = not not self.status_dict.added
-      local removed_check = not not self.status_dict.removed
-      local changed_check = not not self.status_dict.changed
-      return added_check and removed_check and changed_check
+      self.status_dict = vim.b.gitsigns_status_dict
+      local added_check = check(self.status_dict.added)
+      local removed_check = check(self.status_dict.removed)
+      local changed_check = check(self.status_dict.changed)
+      return added_check or removed_check or changed_check
    end,
    {
       provider = "("

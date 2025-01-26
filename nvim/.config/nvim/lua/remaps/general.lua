@@ -6,6 +6,9 @@ vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>", {})
 
 
 
+
+
+
 -- to remove annoying space
 map("n", " ", "<Nop>", opt)
 
