@@ -14,12 +14,11 @@ local function read(path)
 end
 
 
-
-
 local function background()
    local path = "/home/rom/.config/wezterm/background.txt"
    path = read(path)
-   path = "/home/rom/wallpapers/original/" .. path
+   -- path = "/home/rom/wallpapers/original/" .. path
+   path = "/home/rom/wallpapers/blur/" .. path
    return path
 end
 

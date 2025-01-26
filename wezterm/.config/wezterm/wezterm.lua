@@ -16,6 +16,7 @@ config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.animation_fps = 70
 config.max_fps = 70
 
+config.enable_wayland = false
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_padding = {
