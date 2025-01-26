@@ -8,8 +8,13 @@ config.font = wezterm.font_with_fallback({
   "Font Awesome 6 Free Solid"
 
 })
+
+
+
 config.font_size = 15.0
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+config.animation_fps = 70
+config.max_fps = 70
 
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
@@ -20,11 +25,25 @@ config.window_padding = {
   top = 0,
 }
 
-config.window_background_image = '/home/rom/wallpapers/ghost_in_the_shell.jpg'
--- config.window_background_image = '/home/rom/wallpapers/akira.jpg'
+
+
+
+
+
+local utils = require("utils")
+
+
+
+
+
+config.window_background_image = utils.background()
+
+
 config.window_background_image_hsb = {
-  brightness = 0.05,
-  hue = 1.0,
+  brightness = utils.brightness(),
+  -- brightness = 0.03,
+  -- brightness = 0.1,
+  -- hue = 1.0,
   saturation = 1.0,
 }
 
@@ -37,6 +56,16 @@ config.disable_default_key_bindings = true
 local act = wezterm.action
 
 config.keys = {
+   -- {
+   --    key = "=",
+   --    mods = "ALT|SHIFT",
+   --    action = function()
+   --
+   --    end
+   --
+   -- },
+
+
   {
     key = "=",
     mods = "ALT",
