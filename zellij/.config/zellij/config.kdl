@@ -2,5 +2,21 @@ simplified_ui true
 
 pane_frames false
 
-// hide_session_name true
+default_shell "fish"
+
+hide_session_name true
+
+default_mode "locked"
+
+keybinds {
+   normal clear-defaults=true {
+   // normal {
+      bind "Ctrl a" { NewPane; }
+
+   }
+   locked clear-defaults=true {
+   }
+}
+
+
 

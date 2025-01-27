@@ -78,3 +78,7 @@ map("n", "r", function()
    vim.schedule(function() vim.cmd("doautocmd ModeChanged") end)
 end, {})
 
+
+
+
+
