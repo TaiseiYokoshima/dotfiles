@@ -70,6 +70,10 @@ end
 
 
 
+function zr
+   zellij action rename-tab "$argv"
+end
+
 
 function fish_user_key_bindings
   # deletes default keybinds that are not necessary
@@ -240,6 +244,7 @@ function fish_user_key_bindings
   
   bind   \cp  backward-kill-path-component
   
+  bind   \cW backward-kill-word
   bind   \cd  backward-kill-word
   bind   \cf  kill-word
   
