@@ -245,6 +245,7 @@ function fish_user_key_bindings
   bind   \cp  backward-kill-path-component
   
   bind   \cW backward-kill-word
+  bind   \b    backward-kill-word
   bind   \cd  backward-kill-word
   bind   \cf  kill-word
   
