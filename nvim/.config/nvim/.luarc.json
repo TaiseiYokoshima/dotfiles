@@ -9,7 +9,8 @@
         "opt",
         "mode_color",
         "vim_do",
-        "my_hls"
+        "my_hls",
+        "in_zellij"
     ],
     "diagnostics.disable": [
         "unused-local",
