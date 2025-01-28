@@ -266,6 +266,7 @@ eval "$output"
 # haskell 
 set -x PATH $PATH ~/.ghcup/bin
 set -x PATH $PATH ~/.cabal/bin
+set -x PATH $PATH ~/.cargo/bin
 
 
 # starship init fish | source
