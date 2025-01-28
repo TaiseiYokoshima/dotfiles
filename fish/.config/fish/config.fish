@@ -261,7 +261,7 @@ end
 
 
 # install keychain, openssh, ssh-agent, ssh-add
-set output (keychain --quiet --eval --agents ssh ~/.ssh/github)
+# set output (keychain --quiet --eval --agents ssh ~/.ssh/github)
 set output (string replace ' export SSH_AUTH_SOCK;' '' $output)
 set output (string replace 'SSH_AUTH_SOCK=' 'set -x SSH_AUTH_SOCK ' $output)
 set output (string replace ' export SSH_AGENT_PID;' '' $output)
@@ -277,3 +277,4 @@ set -x PATH $PATH ~/.cargo/bin
 
 # starship init fish | source
 
+set -g fish_term24bit 1
