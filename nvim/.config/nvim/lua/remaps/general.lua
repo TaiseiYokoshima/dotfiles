@@ -17,6 +17,10 @@ map("n", "Y", ":noh<CR>", opt)
 
 
 map("i", "<C-BS>", "<C-w>", opt)
+map("i", "<C-H>", "<C-w>", opt)
+map("i", "<C-w>", "<Nop>", opt)
+
+
 
 
 

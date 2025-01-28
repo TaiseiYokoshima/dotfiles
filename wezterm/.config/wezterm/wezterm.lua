@@ -66,6 +66,12 @@ config.keys = {
    --
    -- },
 
+   -- {
+   --    key = "Backspace",
+   --    mods = "CTRL",
+   --    action = act.SendKey { key = "w", mods = "CTRL" }
+   --
+   -- },
 
   {
     key = "=",

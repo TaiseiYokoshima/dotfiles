@@ -43,6 +43,10 @@ vim.api.nvim_create_autocmd("User", {
    pattern = "SingleReplace",
    callback = function()
       _G.single_replace = false
-      vim.schedule( function () set_hl("c_replace", hls.replace) end)
+      vim.schedule(function() set_hl("c_replace", hls.replace) end)
    end
 })
+
+
+
+

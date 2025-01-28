@@ -4,19 +4,118 @@ pane_frames false
 
 default_shell "fish"
 
-hide_session_name true
+// hide_session_name true
 
-default_mode "locked"
+// default_mode "locked"
 
 keybinds {
+
    normal clear-defaults=true {
-   // normal {
-      bind "Ctrl a" { NewPane; }
+
+
+
+      bind "Ctrl Shift m" { SwitchToMode "locked"; }
+
+
+      bind "Ctrl Space" { SwitchToMode "tmux"; }
+
+
+
+
+      bind "Shift Right" { MoveFocus "Right"; }
+      bind "Shift Left" { MoveFocus "Left"; }
+      bind "Shift Down" { MoveFocus "Down"; }
+      bind "Shift Up" { MoveFocus "Up"; }
+
+      bind "Ctrl Shift q" { SwitchToMode "normal"; GoToTab 1; }
+      bind "Ctrl Shift w" { SwitchToMode "normal"; GoToTab 2; }
+      bind "Ctrl Shift e" { SwitchToMode "normal"; GoToTab 3; }
+      bind "Ctrl Shift r" { SwitchToMode "normal"; GoToTab 4; }
+      bind "Ctrl Shift t" { SwitchToMode "normal"; GoToTab 5; }
+
+
+      bind "Ctrl \\" { ToggleFocusFullscreen; }
+
+
 
    }
    locked clear-defaults=true {
+
+      // bind "Ctrl Shift m" { SwitchToMode "normal"; }
+
+      bind "Ctrl Space" { SwitchToMode "tmux"; }
+
+
+      bind "Ctrl Shift q" { SwitchToMode "normal"; GoToTab 1; }
+      bind "Ctrl Shift w" { SwitchToMode "normal"; GoToTab 2; }
+      bind "Ctrl Shift e" { SwitchToMode "normal"; GoToTab 3; }
+      bind "Ctrl Shift r" { SwitchToMode "normal"; GoToTab 4; }
+      bind "Ctrl Shift t" { SwitchToMode "normal"; GoToTab 5; }
+   }
+
+   tmux clear-defaults=true {
+
+      bind "Esc" { 
+         Run "/home/rom/.config/zellij/scripts/escape.bash" {
+            close_on_exit true
+         }; 
+      }
+
+
+
+
+
+
+
+
+      
+      // create panes
+      bind "l" { NewPane "Right"; SwitchToMode "Normal"; }
+
+      bind "k" { NewPane "Left"; SwitchToMode "Normal"; }
+
+      bind "j" { NewPane "Up"; SwitchToMode "Normal"; }
+
+      bind ";" { NewPane "Down"; SwitchToMode "Normal"; }
+
+      
+      // move panes
+      bind "L" { MovePane "Right"; }
+
+      bind "K" { MovePane "Left"; }
+
+      bind "J" { MovePane "Up"; }
+
+      bind ":" { MovePane "Down"; }
+
+
+      // resize panes
+
+
+      bind "Up" { Resize "Up"; }
+      bind "Down" { Resize "Down"; }
+      bind "Left" { Resize "Left"; }
+      bind "Right" { Resize "Right"; }
+
+
+      bind "x" { CloseFocus; }
+      bind "w" { CloseTab; }
+
+      bind "t" { NewTab; }
+      bind "," { MoveTab "Left"; }
+      bind "." { MoveTab "Right"; }
+
+      bind "s" {
+         LaunchOrFocusPlugin "zellij:session-manager" { 
+            floating true 
+         };
+         SwitchToMode "normal";
+      }
+
+
    }
 }
+
 
 
 
