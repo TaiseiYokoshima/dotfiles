@@ -8,6 +8,11 @@ default_shell "fish"
 
 // default_mode "locked"
 
+
+session_serialization true
+pane_viewport_serialization true
+scrollback_lines_to_serialize 100
+
 keybinds {
 
    normal clear-defaults=true {
