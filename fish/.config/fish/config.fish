@@ -274,6 +274,7 @@ set -x PATH $PATH ~/.ghcup/bin
 set -x PATH $PATH ~/.cabal/bin
 set -x PATH $PATH ~/.cargo/bin
 
+set -x LIBVIRT_DEFAULT_URI  "qemu:///system"
 
 # starship init fish | source
 
