@@ -10,6 +10,9 @@ local function mason_config()
       "taplo",
       "bashls",
       "sqlls",
+      "pylsp",
+      "pylyzer",
+      "black",
       --          "java-language-server"
     },
     automatic_installation = true,
