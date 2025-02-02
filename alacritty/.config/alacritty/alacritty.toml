@@ -1,0 +1,70 @@
+general.live_config_reload = true
+
+
+window.opacity = 0.5
+
+colors.primary.background = "#000000"
+
+
+
+font.normal = { family = "JetBrainsMono Nerd Font" }
+
+
+
+[terminal]
+osc52 = "CopyPaste"
+
+
+[mouse]
+bindings = [
+  { mouse = "Middle", action = "Paste" },
+  { mouse = "Right", action = "Copy" },
+]
+
+
+[keyboard]
+bindings = [
+  {  key = "v", mods = "Control", action = "ReceiveChar" },
+  {  key = "v", mods = "Control|Shift", action = "Paste" },
+
+  {  key = "v", mods = "Alt", mode = "~Alt|~Vi", action = "ToggleViMode" },
+
+
+
+  {  key = "j",  mode = "Vi", action = "Up" },
+  {  key = ";",  mode = "Vi", action = "Down" },
+  {  key = "k",  mode = "Vi", action = "Left" },
+  {  key = "l",  mode = "Vi", action = "Right" },
+  {  key = "Home",  mode = "Vi", action = "First" },
+  {  key = "End",  mode = "Vi", action = "Last" },
+  {  key = "_",  mods = "Shift", mode = "Vi", action = "FirstOccupied" },
+  {  key = "Escape",  mode = "Vi", action = "ToggleViMode" },
+  {  key = "w",  mode = "Vi", action = "SemanticRight" },
+  {  key = "b",  mode = "Vi", action = "SemanticLeft" },
+  {  key = "e",  mode = "Vi", action = "SemanticRightEnd" },
+  {  key = "v", mods = "Shift", mode = "Vi", action = "ToggleLineSelection" },
+  {  key = "v", mods = "Control", mode = "Vi", action = "ToggleBlockSelection" },
+  {  key = "y", mode = "Vi", action = "Copy" },
+  {  key = "g",  mode = "Vi", action = "High" },
+  {  key = "z",  mode = "Vi", action = "middle" },
+  {  key = "g", mods = "Shift", mode = "Vi", action = "Low" },
+
+
+
+  {  key = "f",  mode = "Vi", action = "InlineSearchForward" },
+  {  key = "F",  mods = "Shift", mode = "Vi", action = "InlineSearchBackward" },
+  {  key = "t",  mode = "Vi", action = "InlineSearchForwardShort" },
+  {  key = "T",  mods = "Shift", mode = "Vi", action = "InlineSearchBackwardShort" },
+  {  key = ".",   mode = "Vi", action = "InlineSearchNext" },
+  {  key = ",",   mode = "Vi", action = "InlineSearchPrevious" },
+
+
+
+  {  key = "/",  mods = "Alt", mode = "~Vi", action = "SearchForward" },
+
+  {  key = "ArrowDown",  mode = "Search", action = "SearchFocusNext" },
+  {  key = "ArrowUp",  mode = "Search", action = "SearchFocusPrevious" },
+  {  key = "Enter",  mode = "Search", action = "SearchConfirm" },
+  {  key = "v",  mods= "Control", mode = "Search", action = "ToggleViMode" },
+
+]
