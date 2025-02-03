@@ -5,13 +5,7 @@ class="Rofi"
 cmd="rofi -dmenu -n -config /home/rom/.config/rofi/bluetooth.rasi -matching prefix -i "
 
 
-# if pgrep -x "$launcher" > /dev/null; then 
-#   pkill -x "$launcher"
-# fi
-
-# pgrep -x "$launcher" > /dev/null && pkill -x "$launcher"
-
-$HOME/.config/hypr/scripts/smart_launch_menu.bash $launcher $class 
+pkill rofi
 
 choice=$(eval "echo -e 'Connect\nDisconnect\nList\nPair\nForget\nTurn On\nKill\nRestart' | $cmd " )
 
