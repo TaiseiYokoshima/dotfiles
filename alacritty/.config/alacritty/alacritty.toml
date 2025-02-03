@@ -29,6 +29,9 @@ bindings = [
 
   {  key = "Space", mods = "Control", mode = "~Alt|~Vi", action = "ToggleViMode" },
 
+  {  key = "w", mods = "Control", mode = "~Alt|~Vi", action = "ScrollHalfPageUp" },
+  {  key = "e", mods = "Control", mode = "~Alt|~Vi", action = "ScrollHalfPageDown" },
+
 
 
   {  key = "j",  mode = "Vi", action = "Up" },
