@@ -21,8 +21,8 @@
   padding-right: 10px;
 }
 
-/* #workspaces button.active { */
-#workspaces button.focused {
+#workspaces button.active {
+/* #workspaces button.focused { */
   color: #ffffff;
   border-bottom: 2px solid #ffffff;
 }
