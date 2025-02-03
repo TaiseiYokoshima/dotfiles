@@ -3,7 +3,7 @@
 
 device_list=$(bluetoothctl devices Paired) 
 device_names=$(echo "$device_list" | cut -d ' ' -f 3-)
-selection=$(echo -e "$device_names" | dmenu -i -l 10 -p "Device to Remove:")
+selection=$(echo -e "$device_names" | $bluetooth_menu )
 
 if [[ "$selection" == "" ]]; then 
   exit
@@ -18,8 +18,7 @@ disconnect_result=$(bluetoothctl disconnect "$mac")
 result_check=$(echo "$disconnect_result" | grep -oP "Successful disconnected")
 
 if [[ "$result_check" != "Successful disconnected" ]]; then
-  echo "came here lmao"
-  dunstify -u critical "Bluetooth" "Failed to disconnect $selection\n$disconnect_result"
+  notify-send -e -u critical -t 500 "Bluetooth" "Failed to disconnect:\n$disconnect_result"
   exit
 fi
 
@@ -32,9 +31,9 @@ echo "$result"
 result_check=$(echo "$remove_result" | grep -oP "Device has been removed")
 
 if [[ "$result_check" != "Device has been removed" ]]; then
-  dunstify -u critical "Bluetooth" "Failed to remove $selection\n$remove_result"
+  notify-send -e -u critical -t 500 "Bluetooth" "Failed to remove:\n$remove_result"
   exit
 fi
 
-dunstify "Bluetooth" "Removed $selection"
+notify-send -e -t 500 "Bluetooth" "Removed $selection"
 

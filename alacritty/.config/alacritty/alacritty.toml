@@ -27,7 +27,7 @@ bindings = [
   {  key = "v", mods = "Control", action = "ReceiveChar" },
   {  key = "v", mods = "Control|Shift", action = "Paste" },
 
-  {  key = "v", mods = "Alt", mode = "~Alt|~Vi", action = "ToggleViMode" },
+  {  key = "Space", mods = "Control", mode = "~Alt|~Vi", action = "ToggleViMode" },
 
 
 

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+state=$(bluetoothctl show | grep "Powered")
+
+if [[ "$state" == *"yes"* ]]; then
+  exit
+fi
+
+
+
+result=$(bluetoothctl power on)
+result_check=$(echo "$result" | grep -oP "Changing power on succeeded")
+
+
+if [[ "$result_check" != "Changing power on succeeded" ]]; then
+  notify-send -e critical -t 500 "Bluetooth" "Failed to boot:\n$result"
+  exit
+fi
+
+notify-send -e -t 500 "Bluetooth" "Powered on"
+

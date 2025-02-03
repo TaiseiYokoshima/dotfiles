@@ -6,7 +6,7 @@ if [[ "$device_list" == "" ]]; then
   device_names="None"
 fi
 
-selection=$(echo -e "$device_names" | dmenu -i -l 10 -p "Connected devices:")
+selection=$(echo -e "$device_names" | $bluetooth_menu )
 
 
 

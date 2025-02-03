@@ -1,15 +1,20 @@
 #!/bin/bash
 
-turn_on=$(bluetoothctl power on)
-filter=$(echo "$turn_on" | grep -oP "Changing power on succeeded")
+state=$(bluetoothctl show | grep "Powered" )
 
+if [[ "$state" == *"no"* ]]; then
+  turn_on=$(bluetoothctl power on)
+  filter=$(echo "$turn_on" | grep -oP "Changing power on succeeded")
 
-if [[ "$filter" == "Changing power on succeeded" ]]; then 
-  dunstify "Bluetooth" "Powered On" -t 500
-else 
-  dunstify -u critical "Bluetooth" "Failed to power on:\n$turn_on"
-  exit
+  if [[ "$filter" == "Changing power on succeeded" ]]; then 
+    notify-send -e -t 500 "Bluetooth" "Turned on"
+  else 
+    notify-send -e -u critical -t 500 "Bluetooth" "Failed to power on:\n$turn_on"
+    exit
+  fi
+
 fi
+
 
 device_list=$(bluetoothctl devices Paired) 
 connected=$(bluetoothctl devices Connected) 
@@ -24,7 +29,7 @@ done
 
 connectable=$(echo -e "$connectable" | grep -v '^$')
 device_names=$(echo "$connectable" | cut -d ' ' -f 3-)
-selection=$(echo -e "$device_names" | dmenu -i -l 10 -p "Device to connect:")
+selection=$(echo -e "$device_names" | $bluetooth_menu)
 
 if [[ "$selection" == "" ]]; then 
   exit
@@ -35,7 +40,7 @@ result=$(bluetoothctl connect "$mac")
 result_check=$(echo "$result" | grep -oP "Connection successful|Failed to connect")
 
 if [[ "$result_check" == "Failed to connect" ]]; then
-  dunstify -u critical "Bluetooth" "Failed to connect to $selection\n$result"
+  notify-send -e -u critical -t 500 "Bluetooth" "Failed to connect:\n$result"
   exit
 fi
 

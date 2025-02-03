@@ -1,7 +1,7 @@
 #!/bin/bash
 connected=$(bluetoothctl devices Connected) 
 device_names=$(echo "$connected" | cut -d ' ' -f 3-)
-selection=$(echo -e "$device_names" | dmenu -i -l 10 -p "Device to disconnect:")
+selection=$(echo -e "$device_names" | $bluetooth_menu)
 
 if [[ "$selection" == "" ]]; then 
   exit
@@ -13,7 +13,8 @@ result_check=$(echo "$result" | grep -oP "Successful disconnected")
 
 
 if [[ "$result_check" != "Successful disconnected" ]]; then
-  dunstify -u critical "Bluetooth" "Failed to disconnect $selection\n$result"
+  notify-send -e -u critical -t 500 "Bluetooth" "Failed to disconnect:\n$result"
+  exit
 fi
 
 

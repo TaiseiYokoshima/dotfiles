@@ -1,0 +1,20 @@
+#!/bin/bash
+connected=$(bluetoothctl devices Connected) 
+
+
+bluetoothctl power off
+bluetoothctl power on
+
+if [[ "$connected" == "" ]]; then
+  exit
+fi
+
+mac=$(echo "$connected" | grep "$selection" | awk '{print $2}')
+
+arr=($mac)
+for element in "${arr[@]}"; do
+  bluetoothctl connect $element
+done
+exit
+
+

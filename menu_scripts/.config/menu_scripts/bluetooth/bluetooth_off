@@ -1,0 +1,19 @@
+#!/bin/bash
+state=$(bluetoothctl show | grep "Powered" )
+
+if [[ "$state" == *"no"* ]]; then
+  exit
+fi
+
+
+turn_off=$(bluetoothctl power off)
+filter=$(echo "$turn_off" | grep -oP "Changing power off succeeded")
+
+if [[ "$filter" == "Changing power off succeeded" ]]; then 
+  notify-send -e -t 1000 "Bluetooth" "Turned off"
+else 
+  notify-send -e -u critical "Bluetooth" "Failed to power off:\n$turn_off"
+fi
+
+
+
