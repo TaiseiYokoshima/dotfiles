@@ -1,0 +1,30 @@
+#!/bin/bash
+
+
+pkill $menu_cmd
+
+choice=$(eval "echo -e 'Connect\nDisconnect\nList\nPair\nForget\nBoot\nKill\nRestart' | $bluetooth_menu " )
+
+
+[[ "$choice" == "" ]] && echo "cancelled" && exit
+
+
+if [[ "$choice" == "Connect" ]]; then
+  ~/.config/scripts/bluetooth/bluetooth_connect
+elif [[ "$choice" == "Disconnect" ]]; then
+  ~/.config/scripts/bluetooth/bluetooth_disconnect
+elif [[ "$choice" == "Pair" ]]; then
+  ~/.config/scripts/bluetooth/bluetooth_pair
+elif [[ "$choice" == "Forget" ]]; then
+  ~/.config/scripts/bluetooth/bluetooth_remove
+elif [[ "$choice" == "Kill" ]]; then
+  ~/.config/scripts/bluetooth/bluetooth_off
+elif [[ "$choice" == "List" ]]; then
+  ~/.config/scripts/bluetooth/bluetooth_list_connected
+elif [[ "$choice" == "Boot" ]]; then
+  ~/.config/scripts/bluetooth/bluetooth_on
+elif [[ "$choice" == "Restart" ]]; then
+  ~/.config/scripts/bluetooth/bluetooth_restart
+fi
+
+echo "$choice"

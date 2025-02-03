@@ -16,7 +16,7 @@ else
 fi
 
 
-id=$(cat /$HOME/.config/hypr/scripts/volume_id.txt)
+id=$(cat /$HOME/.config/scripts/volume_brightness/volume_id.txt)
 if [ "$id" == "" ]; then 
   id=$(eval "notify-send -e -p -t 500 -h $str" )
   echo "got id: $id"

@@ -19,10 +19,10 @@ volume=$(echo "$volume" | grep -oP "\d{1,3}%" | uniq)
 volume="${volume%?}"
 
 
-id=$(cat /$HOME/.config/hypr/scripts/volume_id.txt)
+id=$(cat /$HOME/.config/scripts/volume_brightness/volume_id.txt)
 if [ "$id" == "" ]; then 
   id=$(notify-send -e -p -t 500 -h int:value:"$volume" "Volume: $volume%")
-  echo "$id" > /$HOME/.config/hypr/scripts/volume_id.txt
+  echo "$id" > /$HOME/.config/scripts/volume_brightness/volume_id.txt
   echo "not_set"
 else
   notify-send -e -r "$id" -t 500 -h int:value:"$volume" "Volume: $volume%" 
