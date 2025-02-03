@@ -4,14 +4,15 @@ pane_frames false
 
 default_shell "fish"
 
-// hide_session_name true
-
-// default_mode "locked"
 
 
 session_serialization true
 pane_viewport_serialization true
 scrollback_lines_to_serialize 100
+
+mouse_mode false
+
+
 
 keybinds {
 
