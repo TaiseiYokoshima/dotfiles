@@ -47,5 +47,5 @@ local function pylyzer()
 end
 
 -- pyls()
--- pyright()
-pylyzer()
+pyright()
+-- pylyzer()
