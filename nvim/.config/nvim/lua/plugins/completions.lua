@@ -1,6 +1,5 @@
 local function completion_config()
    local cmp = require("cmp")
-   require("luasnip.loaders.from_vscode").lazy_load()
 
    -- vim.o.completeopt = "menu,menuone,noselect"
 
@@ -18,12 +17,6 @@ local function completion_config()
       return config
    end
 
-   local snippet = {
-      -- REQUIRED - you must specify a snippet engine
-      expand = function(args)
-         require("luasnip").lsp_expand(args.body)
-      end,
-   }
 
    local window = {
       completion = cmp.config.window.bordered({
@@ -104,7 +97,6 @@ local function completion_config()
    local sources = cmp.config.sources({
 
       { name = "nvim_lsp" },
-      { name = "luasnip" },
       { name = "path" },
 
    }, {
@@ -112,7 +104,6 @@ local function completion_config()
    })
 
    local my_config = {
-      snippet = snippet,
       window = window,
       view = view,
       sorting = sorting,
@@ -127,19 +118,6 @@ local function completion_config()
    cmp.setup(my_config)
 
 
-   local ls = require("luasnip")
-   -- map({"i", "s"}, "<S-Left>", function() might work better?
-   vim.keymap.set("i", "<C-u>", function()
-      if ls.jumpable(-1) then
-         ls.jump(-1)
-      end
-   end)
-
-   vim.keymap.set("i", "<C-p>", function()
-      if ls.jumpable(1) then
-         ls.jump(1)
-      end
-   end)
 end
 
 
@@ -149,24 +127,9 @@ end
 return {
    { "hrsh7th/cmp-nvim-lsp" },
 
-   {
-      "L3MON4D3/LuaSnip",
-      -- enabled = false,
-      dependencies = {
-         "saadparwaiz1/cmp_luasnip",
-         "rafamadriz/friendly-snippets",
-      },
-      version = "*",
-      build = "make install_jsregexp",
-   },
 
    {
       "hrsh7th/nvim-cmp",
       config = completion_config,
-      dependencies = {
-         "L3MON4D3/LuaSnip",
-         "saadparwaiz1/cmp_luasnip",
-         "rafamadriz/friendly-snippets",
-      },
    },
 }

@@ -53,21 +53,6 @@ vim.keymap.set("", "<ScrollWheelDown>", "<C-E>", { noremap = true, silent = true
 
 
 
--- | luasnips
--- local ls = require("luasnip")
--- -- map({"i", "s"}, "<S-Left>", function() might work better?
--- map("i", "<C-u>", function()
---   if ls.jumpable(-1) then
---     ls.jump(-1)
---   end
--- end)
---
--- map("i", "<C-p>", function()
---   if ls.jumpable(1) then
---     ls.jump(1)
---   end
--- end)
---
 
 
 local _, hls, names, funcs = my_hls()

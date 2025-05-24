@@ -37,9 +37,10 @@ local function configure_lsp_config()
 
 
 
-  --      local capabilities2 = vim.lsp.protocol.make_client_capabilities()
-  --      capabilities2.textDocument.completionItem.snippetSupport = true
 end
+
+
+
 
 
 return {
