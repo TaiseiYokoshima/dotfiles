@@ -1,26 +1,3 @@
-local function mason_config()
-  require("mason-lspconfig").setup({
-    ensure_installed = {
-      "lua_ls",
-      "rust_analyzer",
-      "ts_ls",
-      "pyright",
-      "jsonls",
-      "clangd",
-      "taplo",
-      "bashls",
-      "sqlls",
-      "pylsp",
-      "pylyzer",
-      "black",
-      --          "java-language-server"
-    },
-    automatic_installation = true,
-  })
-end
-
-
-
 local function telescope_ui_config()
   require("telescope").setup({
     extensions = {
@@ -43,11 +20,11 @@ local function configure_lsp_config()
     }
   )
 
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-    vim.lsp.handlers.signature_help, {
-      border = _border
-    }
-  )
+  -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+  --   vim.lsp.handlers.signature_help, {
+  --     border = _border
+  --   }
+  -- )
 
   vim.diagnostic.config {
     float = { border = _border }
@@ -73,7 +50,27 @@ return {
 
   {
     "williamboman/mason-lspconfig.nvim",
-    config = mason_config
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "lua_ls",
+          -- "rust_analyzer",
+          "ts_ls",
+          "pyright",
+          "jsonls",
+          "clangd",
+          "taplo",
+          "bashls",
+          "sqlls",
+          "pylsp",
+          "pylyzer",
+          -- "black",
+          --          "java-language-server"
+        },
+        automatic_installation = true,
+      })
+    end
+
   },
 
 
