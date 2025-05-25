@@ -1,5 +1,5 @@
 if status is-interactive
-  alias l "exa --icons --sort=type"
+  alias l "eza --icons --sort=type"
   alias la "l -a"
   alias ll "l -l -g"
   alias lla "ll -a -g"

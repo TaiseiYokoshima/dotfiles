@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 volume=$(pactl get-sink-volume @DEFAULT_SINK@)
 volume=$(echo "$volume" | grep -oP "\d{1,3}%" | uniq)

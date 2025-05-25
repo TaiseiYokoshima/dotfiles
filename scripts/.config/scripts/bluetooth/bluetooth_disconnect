@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 connected=$(bluetoothctl devices Connected) 
 device_names=$(echo "$connected" | cut -d ' ' -f 3-)
 selection=$(echo -e "$device_names" | $bluetooth_menu)

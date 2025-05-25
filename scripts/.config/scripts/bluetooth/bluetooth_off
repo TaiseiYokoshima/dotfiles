@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+
 state=$(bluetoothctl show | grep "Powered" )
 
 if [[ "$state" == *"no"* ]]; then
